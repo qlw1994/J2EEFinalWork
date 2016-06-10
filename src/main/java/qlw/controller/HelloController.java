@@ -8,6 +8,12 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/1")
 public class HelloController {
 
+	@RequestMapping("/11")
+	public String test() {
+		return "login";
+	}
+
+	@RequestMapping
 	public ModelAndView helloMvc() {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("home");

@@ -8,7 +8,7 @@ public class MyServletRequestAttributeListener implements ServletRequestAttribut
 
 	public void attributeAdded(ServletRequestAttributeEvent arg0) {
 		String id = arg0.getServletRequest().getParameter("id");
-		String pwd = arg0.getServletRequest().getParameter("id");
+		String pwd = arg0.getServletRequest().getParameter("pwd");
 		System.out.println(++count + "id = " + id);
 		System.out.println(count + "pwd = " + pwd);
 

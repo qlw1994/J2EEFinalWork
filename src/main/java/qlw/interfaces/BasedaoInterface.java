@@ -4,9 +4,9 @@ import java.io.Serializable;
 import java.util.List;
 
 public interface BasedaoInterface<T, PK extends Serializable> {
-	public void save(Class<T> entity);
+	public void save(T entity);
 
-	public void update(Class<T> entity);
+	public void update(T entity);
 
 	public void delete(PK id);
 

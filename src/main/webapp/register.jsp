@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+	pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -19,6 +19,27 @@
 <script
 	src="http://ajax.useso.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="resources/js/login.js" type="text/javascript"></script>
+<script type="text/javascript">
+	function idAjaxCheck() {
+		var cid = $("#id").val();
+		if (cid == null || cid == "") {
+			return;
+		}
+		$.ajax({
+			type : "get",
+			url : "127.0.0.1:8080/ShopSite/Register/RegisterAjaxCheck?id="
+					+ cid,
+
+			error : function(html) { //失败
+				alert(html);
+			},
+			success : function(html) {
+				//		$("#id").html(html);
+				alert('1111111111');
+			}
+		});
+	}
+</script>
 </head>
 <body>
 
@@ -38,7 +59,8 @@
 		</div>
 		<form action="Register" onsubmit="return validate_form(this)"
 			method="post">
-			<input name="id" type="text" class="text" onfocus="this.value = '';">
+			<input id="id" name="id" type="text" class="text"
+				onfocus="this.value = '';" onblur="idAjaxCheck()">
 			<div class="key">
 				<input name="pwd" type="password" onfocus="this.value = '';">
 			</div>
@@ -46,7 +68,10 @@
 				<input type="submit" value="提交">
 			</div>
 		</form>
-		<div class="signin"><a href="http://127.0.0.1:8080/ShopSite/jsps/login.jsp"><input type="submit" value="返回"></a></div>
+		<div class="signin">
+			<a href="http://127.0.0.1:8080/ShopSite/login.jsp"><input
+				type="submit" value="返回"></a>
+		</div>
 	</div>
 	<div class="copy-rights">
 		<p>Copyright &copy; 2016.csxy@i1i2 All rights reserved.</p>

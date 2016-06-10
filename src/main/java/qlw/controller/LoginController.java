@@ -22,27 +22,34 @@ public class LoginController {
 	@Autowired
 	private LoginService loginService;
 
+	@RequestMapping("/RegisterLogin")
+	public ModelAndView registerLogin(HttpServletRequest request) {
+		ModelAndView modelAndView = new ModelAndView();
+		ModelMap mmap = new ModelMap();
+		mmap.addAttribute("customer_id", request.getParameter("register_id"));
+		mmap.addAttribute("customer_pwd", request.getParameter("register_pwd"));
+		modelAndView = new ModelAndView("home", mmap);
+		return modelAndView;
+	}
+
 	@RequestMapping(method = RequestMethod.POST)
 	public ModelAndView login(@RequestParam(value = "id") String id, @RequestParam(value = "pwd") String pwd) {
 		// context = new ClassPathXmlApplicationContext(
 		// "/WEB-INF/configs/spring/applicationContext.xml");
 		String res = loginService.loginCheck(id, pwd);
 		ModelAndView modelAndView = new ModelAndView();
-		ModelMap mmap=new ModelMap();
+		ModelMap mmap = new ModelMap();
 		if (res.equals("0")) {
 			modelAndView.setViewName("loginNotFound");
 		} else if (res.equals("1")) {
-			mmap.addAttribute("id",id);
-			mmap.addAttribute("pwd",pwd);
-			modelAndView=new ModelAndView("home",mmap);
+			mmap.addAttribute("customer_id", id);
+			mmap.addAttribute("customer_pwd", pwd);
+			modelAndView = new ModelAndView("home", mmap);
 		} else {
 			modelAndView.setViewName("loginError");
 		}
-		System.out.println("modelAndView name is "+modelAndView.getViewName());
+		System.out.println("modelAndView name is " + modelAndView.getViewName());
 		return modelAndView;
 	}
-	@RequestMapping("Register")
-	public ModelAndView registerLogin(HttpServletRequest request){
-		
-	}
+
 }

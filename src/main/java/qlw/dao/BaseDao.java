@@ -39,7 +39,7 @@ public class BaseDao<T, PK extends Serializable> implements BasedaoInterface<T, 
 		} else if (type instanceof ParameterizedType) {
 			this.clazz = (Class<T>) ((ParameterizedType) type).getRawType();
 		}
-		
+
 	}
 
 	public Session getSession() {
@@ -48,11 +48,11 @@ public class BaseDao<T, PK extends Serializable> implements BasedaoInterface<T, 
 		return sessionFactory.getCurrentSession();
 	}
 
-	public void save(Class<T> entity) {
+	public void save(T entity) {
 		this.getSession().save(entity);
 	}
 
-	public void update(Class<T> entity) {
+	public void update(T entity) {
 		this.getSession().update(entity);
 	}
 
