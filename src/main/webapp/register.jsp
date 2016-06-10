@@ -1,9 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Login</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Register</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="keywords"
 	content="Flat Dark Web Login Form Responsive Templates, Iphone Widget Template, Smartphone login forms,Login form, Widget Template, Responsive Templates, a Ipad 404 Templates, Flat Responsive Templates" />
@@ -31,24 +32,24 @@
 		</div>
 		<div class="clear"></div>
 		<div class="avtar">
-			<div><img src="resources/images/login_avtar.png" /></div>
-			<div><img src="resources/images/login_avtar.png" /></div>
+			<div>
+				<img src="resources/images/login_avtar.png" />
+			</div>
 		</div>
-		<form action="Login" onsubmit="return validate_form(this)"
+		<form action="Register" onsubmit="return validate_form(this)"
 			method="post">
-			<input name="id" type="text" class="text" onfocus="this.value = '';"
-				>
+			<input name="id" type="text" class="text" onfocus="this.value = '';">
 			<div class="key">
 				<input name="pwd" type="password" onfocus="this.value = '';">
 			</div>
 			<div class="signin">
-				<input type="submit">
+				<input type="submit" value="提交">
 			</div>
 		</form>
-
+		<div class="signin"><a href="http://127.0.0.1:8080/ShopSite/jsps/login.jsp"><input type="submit" value="返回"></a></div>
 	</div>
 	<div class="copy-rights">
-		<p>Copyright &copy; 2015.csxy@i1i2 All rights reserved.</p>
+		<p>Copyright &copy; 2016.csxy@i1i2 All rights reserved.</p>
 	</div>
 
 </body>
