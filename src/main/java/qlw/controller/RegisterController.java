@@ -18,10 +18,10 @@ public class RegisterController {
 	private RegisterService registerService;
 
 	@ResponseBody
-	@RequestMapping(value = "/RegisterAjaxCheck", method = RequestMethod.GET)
+	@RequestMapping(value = "/RegisterAjaxCheck", method = RequestMethod.POST)
 	public String registerAjaxCheck(@RequestParam(value = "id") String id) {
 		String res = "";
-		
+
 		res = registerService.registerCheck(id);
 		// SUCCESS or FAIL
 		System.out.println("/RegisterAjaxCheck");

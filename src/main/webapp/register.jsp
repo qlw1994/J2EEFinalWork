@@ -26,16 +26,18 @@
 			return;
 		}
 		$.ajax({
-			type : "get",
-			url : "127.0.0.1:8080/ShopSite/Register/RegisterAjaxCheck?id="
-					+ cid,
-
-			error : function(html) { //失败
-				alert(html);
+			type : 'POST',
+			url : "http://127.0.0.1:8080/ShopSite/Register/RegisterAjaxCheck",
+			data : {
+				id : cid
 			},
+			dataType : 'TEXT',
 			success : function(html) {
 				//		$("#id").html(html);
-				alert('1111111111');
+				alert(html);
+			},
+			error : function(html) { //失败
+				alert(html);
 			}
 		});
 	}
@@ -44,7 +46,7 @@
 <body>
 
 	<!--SIGN UP-->
-	<h1>购物商城</h1>
+	<h1>帐号注册</h1>
 	<div class="login-form">
 
 		<div class="head-info">
