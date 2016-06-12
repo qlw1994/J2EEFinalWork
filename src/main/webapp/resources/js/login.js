@@ -1,4 +1,3 @@
-
 function validate_form(thisform) {
 	with (thisform) {
 		if (validate_required(id, "用户名不能为空") == false) {
@@ -11,7 +10,16 @@ function validate_form(thisform) {
 		}
 	}
 }
-
+function validate_required(field, text) {
+	with (field) {
+		if (value == null || value == "") {
+			alert(text);
+			return false
+		} else {
+			return true
+		}
+	}
+}
 addEventListener("load", function() {
 	setTimeout(hideURLbar, 0);
 }, false);

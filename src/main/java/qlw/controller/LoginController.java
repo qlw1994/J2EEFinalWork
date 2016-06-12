@@ -22,18 +22,25 @@ public class LoginController {
 	@Autowired
 	private LoginService loginService;
 
+	// 注册成功后登录入口
 	@RequestMapping("/RegisterLogin")
 	public ModelAndView registerLogin(HttpServletRequest request) {
 		ModelAndView modelAndView = new ModelAndView();
 		ModelMap mmap = new ModelMap();
-		mmap.addAttribute("customer_id", request.getParameter("register_id"));
-		mmap.addAttribute("customer_pwd", request.getParameter("register_pwd"));
+		request.getSession().setAttribute("customer_id", request.getParameter("register_id"));
+		request.getSession().setAttribute("customer_pwd", request.getParameter("register_pwd"));
+		// mmap.addAttribute("customer_id",
+		// request.getParameter("register_id"));
+		// mmap.addAttribute("customer_pwd",
+		// request.getParameter("register_pwd"));
 		modelAndView = new ModelAndView("home", mmap);
 		return modelAndView;
 	}
 
+	// 登录界面登录路口
 	@RequestMapping(method = RequestMethod.POST)
-	public ModelAndView login(@RequestParam(value = "id") String id, @RequestParam(value = "pwd") String pwd) {
+	public ModelAndView login(@RequestParam(value = "id") String id, @RequestParam(value = "pwd") String pwd,
+			HttpServletRequest request) {
 		// context = new ClassPathXmlApplicationContext(
 		// "/WEB-INF/configs/spring/applicationContext.xml");
 		String res = loginService.loginCheck(id, pwd);
@@ -42,13 +49,14 @@ public class LoginController {
 		if (res.equals("0")) {
 			modelAndView.setViewName("loginNotFound");
 		} else if (res.equals("1")) {
-			mmap.addAttribute("customer_id", id);
-			mmap.addAttribute("customer_pwd", pwd);
+			request.getSession().setAttribute("customer_id", id);
+			request.getSession().setAttribute("customer_pwd", pwd);
+			// mmap.addAttribute("customer_id", id);
+			// mmap.addAttribute("customer_pwd", pwd);
 			modelAndView = new ModelAndView("home", mmap);
 		} else {
 			modelAndView.setViewName("loginError");
 		}
-		System.out.println("modelAndView name is " + modelAndView.getViewName());
 		return modelAndView;
 	}
 

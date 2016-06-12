@@ -1,822 +1,660 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="en">
+<html>
 <head>
-<meta charset="utf-8">
-<title>Bootshop online Shopping cart</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
-<meta name="author" content="">
+<title>Home</title>
+<link href="resources/css/bootstrap.css" rel="stylesheet"
+	type="text/css" media="all" />
+<!--theme-style-->
+<link href="resources/css/mainstyle.css" rel="stylesheet"
+	type="text/css" media="all" />
+<!--//theme-style-->
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1">
+<script type="application/x-javascript">
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
 
-<!-- Bootstrap style -->
-<link id="callCss" rel="stylesheet"
-	href="resources/themes/bootshop/bootstrap.min.css" media="screen" />
-<link href="resources/themes/css/base.css" rel="stylesheet"
-	media="screen" />
-<!-- Bootstrap style responsive -->
-<link href="resources/themes/css/bootstrap-responsive.min.css"
-	rel="stylesheet" />
-<link href="resources/themes/css/font-awesome.css" rel="stylesheet"
-	type="text/css">
-<!-- Google-code-prettify -->
-<link href="resources/themes/js/google-code-prettify/prettify.css"
-	rel="stylesheet" />
-<!-- fav and touch icons -->
-<link rel="shortcut icon" href="resources/themes/images/ico/favicon.ico">
-<link rel="apple-touch-icon-precomposed" sizes="144x144"
-	href="resources/themes/images/ico/apple-touch-icon-144-precomposed.png">
-<link rel="apple-touch-icon-precomposed" sizes="114x114"
-	href="resources/themes/images/ico/apple-touch-icon-114-precomposed.png">
-<link rel="apple-touch-icon-precomposed" sizes="72x72"
-	href="resources/themes/images/ico/apple-touch-icon-72-precomposed.png">
-<link rel="apple-touch-icon-precomposed"
-	href="resources/themes/images/ico/apple-touch-icon-57-precomposed.png">
-<style type="text/css" id="enject"></style>
+
+
+
+
+
+
+
+
+</script>
+<!--fonts-->
+<link
+	href='http://fonts.useso.com/resources/css?family=Open+Sans:400,300,600,700,800'
+	rel='stylesheet' type='text/css'>
+<!--//fonts-->
+<script src="resources/js/jquery.min.js"></script>
+<script src="resources/js/jquery.easydropdown.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		var photo = "${photoURL}"
+		if (photo != null && photo != "") {
+			$("#headPhoto").attr('src', photo);
+		} else {
+			$("#headPhoto").attr('src', "resources/images/avatar.png");
+		}
+
+	})
+</script>
+<!--script-->
 </head>
 <body>
-	<div id="header">
-		<div class="container">
-			<div id="welcomeLine" class="row">
-				<div class="span6">
-					Welcome!<strong> ${customer_id}</strong>
+	<!--header-->
+	<div class="header">
+		<div class="top-header">
+			<div class="container">
+				<div class="top-header-left">
+					<ul class="support">
+						<li><a href="#"><label> </label></a></li>
+						<li><a href="#">24x7 live<span class="live">
+									support</span></a></li>
+					</ul>
+					<ul class="support">
+						<li class="van"><a href="#"><label> </label></a></li>
+						<li><img id="headPhoto" src="" width=32px height=30px /><a
+							href="#">${customer_id}</a></li>
+					</ul>
+					<div class="clearfix"></div>
 				</div>
-				<div class="span6">
-					<div class="pull-right">
-						<a href="product_summary.html"><span class="">Fr</span></a> <a
-							href="product_summary.html"><span class="">Es</span></a> <span
-							class="btn btn-mini">En</span> <a href="product_summary.html"><span>&pound;</span></a>
-						<span class="btn btn-mini">$155.00</span> <a
-							href="product_summary.html"><span class="">$</span></a> <a
-							href="product_summary.html"><span
-							class="btn btn-mini btn-primary"><i
-								class="icon-shopping-cart icon-white"></i> [ 3 ] Itemes in your
-								cart </span> </a>
-					</div>
-				</div>
-			</div>
-			<!-- Navbar ================================================== -->
-			<div id="logoArea" class="navbar">
-				<a id="smallScreen" data-target="#topMenu" data-toggle="collapse"
-					class="btn btn-navbar"> <span class="icon-bar"></span> <span
-					class="icon-bar"></span> <span class="icon-bar"></span>
-				</a>
-				<div class="navbar-inner">
-					<a class="brand" href="index.html"><img
-						src="resources/themes/images/logo.png" alt="Bootsshop" /></a>
-					<form class="form-inline navbar-search" method="post"
-						action="products.html">
-						<input id="srchFld" class="srchTxt" type="text" /> <select
-							class="srchTxt">
-							<option>All</option>
-							<option>CLOTHES</option>
-							<option>FOOD AND BEVERAGES</option>
-							<option>HEALTH & BEAUTY</option>
-							<option>SPORTS & LEISURE</option>
-							<option>BOOKS & ENTERTAINMENTS</option>
+				<div class="top-header-right">
+					<div class="down-top">
+
+						<select tabindex="4" class="dropdown">
+							<option value="" class="label" value="">English</option>
+							<option value="1">Japanese</option>
+							<option value="2">French</option>
+							<option value="3">German</option>
 						</select>
-						<button type="submit" id="submitButton" class="btn btn-primary">Go</button>
-					</form>
-					<ul id="topMenu" class="nav pull-right">
-						<li class=""><a href="special_offer.html">Specials Offer</a></li>
-						<li class=""><a href="normal.html">Delivery</a></li>
-						<li class=""><a href="contact.html">Contact</a></li>
-						<li class=""><a href="#login" role="button"
-							data-toggle="modal" style="padding-right: 0"><span
-								class="btn btn-large btn-success">Login</span></a>
-							<div id="login" class="modal hide fade in" tabindex="-1"
-								role="dialog" aria-labelledby="login" aria-hidden="false">
-								<div class="modal-header">
-									<button type="button" class="close" data-dismiss="modal"
-										aria-hidden="true">×</button>
-									<h3>Login Block</h3>
-								</div>
-								<div class="modal-body">
-									<form class="form-horizontal loginFrm">
-										<div class="control-group">
-											<input type="text" id="inputEmail" placeholder="Email">
-										</div>
-										<div class="control-group">
-											<input type="password" id="inputPassword"
-												placeholder="Password">
-										</div>
-										<div class="control-group">
-											<label class="checkbox"> <input type="checkbox">
-												Remember me
-											</label>
-										</div>
-									</form>
-									<button type="submit" class="btn btn-success">Sign in</button>
-									<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-								</div>
-							</div></li>
+					</div>
+					<div class="down-top top-down">
+
+						<select tabindex="4" class="dropdown ">
+							<option value="" class="label" value="">Currency :USD</option>
+							<option value="1">Dollar</option>
+							<option value="2">Euro</option>
+						</select>
+					</div>
+
+					<!---->
+					<div class="clearfix"></div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<div class="bottom-header">
+			<div class="container">
+				<div class="header-bottom-left">
+					<div class="logo">
+						<a href="http://127.0.0.1:8080/ShopSite/home.jsp"><img
+							src="resources/images/logo.png" alt=" " /></a>
+					</div>
+					<div class="search">
+						<input type="text" value="" onfocus="this.value = '';"
+							onblur="if (this.value == '') {this.value = '';}"> <input
+							type="submit" value="SEARCH">
+
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="header-bottom-right">
+					<ul class="men-grid">
+						<li><a
+							href="http://127.0.0.1:8080/ShopSite/personalCenter.jsp"><span>
+							</span>YOUR ACCOUNT</a></li>
+						<li class="login"><a
+							href="http://127.0.0.1:8080/ShopSite/login.jsp"><span>
+							</span>LOGIN</a>|</li>
+						<li class="cart"><a href="#"><span> </span>CART</a></li>
+					</ul>
+					<div class="sign-up-right">
+						<a href="http://127.0.0.1:8080/ShopSite/register.jsp">SIGNUP</a>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+	<!---->
+	<div class="container">
+		<div class="banner-menu">
+
+			<div class="shoes-grid">
+				<div class="wmuSlider example1 slide-grid">
+					<div class="wmuSliderWrapper">
+						<article style="position: absolute; width: 100%; opacity: 0;">
+						<div class="banner-matter">
+							<img class="img-responsive banner-bag"
+								src="resources/images/bag.jpg" alt=" " />
+							<div class="banner-off">
+								<h2>FLAT 50% 0FF</h2>
+								<span>FOR ALL PURCHASE <b>VALUE</b></span>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+									sed do eiusmod tempor incididunt ut labore et</p>
+								<a class="now-get" href="#">GET NOW</a>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+						</article>
+						<article style="position: absolute; width: 100%; opacity: 0;">
+						<div class="banner-matter">
+							<img class="img-responsive banner-bag"
+								src="resources/images/bag1.jpg" alt=" " />
+							<div class="banner-off">
+								<h2>FLAT 50% 0FF</h2>
+								<span>FOR ALL PURCHASE <b>VALUE</b></span>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+									sed do eiusmod tempor incididunt ut labore et</p>
+								<a class="now-get" href="#">GET NOW</a>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+						</article>
+						<article style="position: absolute; width: 100%; opacity: 0;">
+						<div class="banner-matter">
+							<img class="img-responsive banner-bag"
+								src="resources/images/bag.jpg" alt=" " />
+							<div class="banner-off">
+								<h2>FLAT 50% 0FF</h2>
+								<span>FOR ALL PURCHASE <b>VALUE</b></span>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+									sed do eiusmod tempor incididunt ut labore et</p>
+								<a class="now-get" href="#">GET NOW</a>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+						</article>
+					</div>
+					<ul class="wmuSliderPagination">
+						<li><a href="#" class="">0</a></li>
+						<li><a href="#" class="">1</a></li>
+						<li><a href="#" class="">2</a></li>
 					</ul>
 				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Header End====================================================================== -->
-	<div id="carouselBlk">
-		<div id="myCarousel" class="carousel slide">
-			<div class="carousel-inner">
-				<div class="item active">
-					<div class="container">
-						<a href="register.html"><img style="width: 100%"
-							src="resources/themes/images/carousel/1.png" alt="special offers" /></a>
-						<div class="carousel-caption">
-							<h4>Second Thumbnail label</h4>
-							<p>Cras justo odio, dapibus ac facilisis in, egestas eget
-								quam. Donec id elit non mi porta gravida at eget metus. Nullam
-								id dolor id nibh ultricies vehicula ut id elit.</p>
-						</div>
-					</div>
-				</div>
-				<div class="item">
-					<div class="container">
-						<a href="register.html"><img style="width: 100%"
-							src="resources/themes/images/carousel/2.png" alt="" /></a>
-						<div class="carousel-caption">
-							<h4>Second Thumbnail label</h4>
-							<p>Cras justo odio, dapibus ac facilisis in, egestas eget
-								quam. Donec id elit non mi porta gravida at eget metus. Nullam
-								id dolor id nibh ultricies vehicula ut id elit.</p>
-						</div>
-					</div>
-				</div>
-				<div class="item">
-					<div class="container">
-						<a href="register.html"><img
-							src="resources/themes/images/carousel/3.png" alt="" /></a>
-						<div class="carousel-caption">
-							<h4>Second Thumbnail label</h4>
-							<p>Cras justo odio, dapibus ac facilisis in, egestas eget
-								quam. Donec id elit non mi porta gravida at eget metus. Nullam
-								id dolor id nibh ultricies vehicula ut id elit.</p>
-						</div>
 
-					</div>
-				</div>
-				<div class="item">
-					<div class="container">
-						<a href="register.html"><img
-							src="resources/themes/images/carousel/4.png" alt="" /></a>
-						<div class="carousel-caption">
-							<h4>Second Thumbnail label</h4>
-							<p>Cras justo odio, dapibus ac facilisis in, egestas eget
-								quam. Donec id elit non mi porta gravida at eget metus. Nullam
-								id dolor id nibh ultricies vehicula ut id elit.</p>
+				<script src="resources/js/jquery.wmuSlider.js"></script>
+				<script>
+					$('.example1').wmuSlider();
+				</script>
+				<!---->
+				<div class="shoes-grid-left">
+					<div class=" con-sed-grid">
+						<div class="elit-grid">
+							<h4>consectetur elit</h4>
+							<span>FOR ALL PURCHASE VALUE</span>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+							</p>
+							<a class="now-get" href="#">GET NOW</a>
 						</div>
-
+						<a href="http://127.0.0.1:8080/ShopSite/single.jsp"><img
+							class="img-responsive shoe-left" src="resources/images/sh.jpg"
+							alt=" " /></a>
+						<div class="clearfix"></div>
+					</div>
+					<div class="con-sed-grid sed-left-top">
+						<div class="elit-grid">
+							<h4>consectetur elit</h4>
+							<span>FOR ALL PURCHASE VALUE</span>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+							</p>
+							<a class="now-get" href="#">GET NOW</a>
+						</div>
+						<a href="http://127.0.0.1:8080/ShopSite/single.jsp"><img
+							class="img-responsive shoe-left" src="resources/images/wa.jpg"
+							alt=" " /></a>
+						<div class="clearfix"></div>
 					</div>
 				</div>
-				<div class="item">
-					<div class="container">
-						<a href="register.html"><img
-							src="resources/themes/images/carousel/5.png" alt="" /></a>
-						<div class="carousel-caption">
-							<h4>Second Thumbnail label</h4>
-							<p>Cras justo odio, dapibus ac facilisis in, egestas eget
-								quam. Donec id elit non mi porta gravida at eget metus. Nullam
-								id dolor id nibh ultricies vehicula ut id elit.</p>
+				<div class="products">
+					<h5 class="latest-product">LATEST PRODUCTS</h5>
+					<a class="view-all"
+						href="http://127.0.0.1:8080/ShopSite/product.jsp">VIEW ALL<span>
+					</span></a>
+				</div>
+				<div class="product-left">
+					<div class=" chain-grid">
+						<a href="http://127.0.0.1:8080/ShopSite/single.jsp"><img
+							class="img-responsive chain" src="resources/images/ch.jpg"
+							alt=" " /></a> <span class="star"> </span>
+						<div class="grid-chain-bottom">
+							<h6>Lorem ipsum dolor</h6>
+							<div class="star-price">
+								<div class="dolor-grid">
+									<span class="actual">300$</span> <span class="reducedfrom">400$</span>
+									<span class="rating"> <input type="radio"
+										class="rating-input" id="rating-input-1-5"
+										name="rating-input-1"> <label for="rating-input-1-5"
+										class="rating-star1"> </label> <input type="radio"
+										class="rating-input" id="rating-input-1-4"
+										name="rating-input-1"> <label for="rating-input-1-4"
+										class="rating-star1"> </label> <input type="radio"
+										class="rating-input" id="rating-input-1-3"
+										name="rating-input-1"> <label for="rating-input-1-3"
+										class="rating-star"> </label> <input type="radio"
+										class="rating-input" id="rating-input-1-2"
+										name="rating-input-1"> <label for="rating-input-1-2"
+										class="rating-star"> </label> <input type="radio"
+										class="rating-input" id="rating-input-1-1"
+										name="rating-input-1"> <label for="rating-input-1-1"
+										class="rating-star"> </label>
+									</span>
+								</div>
+								<a class="now-get get-cart" href="#">ADD TO CART</a>
+								<div class="clearfix"></div>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="item">
-					<div class="container">
-						<a href="register.html"><img
-							src="resources/themes/images/carousel/6.png" alt="" /></a>
-						<div class="carousel-caption">
-							<h4>Second Thumbnail label</h4>
-							<p>Cras justo odio, dapibus ac facilisis in, egestas eget
-								quam. Donec id elit non mi porta gravida at eget metus. Nullam
-								id dolor id nibh ultricies vehicula ut id elit.</p>
+					<div class=" chain-grid">
+						<a href="http://127.0.0.1:8080/ShopSite/single.jsp"><img
+							class="img-responsive chain" src="resources/images/ba.jpg"
+							alt=" " /></a> <span class="star"> </span>
+						<div class="grid-chain-bottom">
+							<h6>Lorem ipsum dolor</h6>
+							<div class="star-price">
+								<div class="dolor-grid">
+									<span class="actual">300$</span> <span class="reducedfrom">400$</span>
+									<span class="rating"> <input type="radio"
+										class="rating-input" id="rating-input-1-5"
+										name="rating-input-1"> <label for="rating-input-1-5"
+										class="rating-star1"> </label> <input type="radio"
+										class="rating-input" id="rating-input-1-4"
+										name="rating-input-1"> <label for="rating-input-1-4"
+										class="rating-star1"> </label> <input type="radio"
+										class="rating-input" id="rating-input-1-3"
+										name="rating-input-1"> <label for="rating-input-1-3"
+										class="rating-star"> </label> <input type="radio"
+										class="rating-input" id="rating-input-1-2"
+										name="rating-input-1"> <label for="rating-input-1-2"
+										class="rating-star"> </label> <input type="radio"
+										class="rating-input" id="rating-input-1-1"
+										name="rating-input-1"> <label for="rating-input-1-1"
+										class="rating-star"> </label>
+									</span>
+								</div>
+								<a class="now-get get-cart" href="#">ADD TO CART</a>
+								<div class="clearfix"></div>
+							</div>
 						</div>
 					</div>
+					<div class=" chain-grid grid-top-chain">
+						<a href="http://127.0.0.1:8080/ShopSite/single.jsp"><img
+							class="img-responsive chain" src="resources/images/bo.jpg"
+							alt=" " /></a> <span class="star"> </span>
+						<div class="grid-chain-bottom">
+							<h6>Lorem ipsum dolor</h6>
+							<div class="star-price">
+								<div class="dolor-grid">
+									<span class="actual">300$</span> <span class="reducedfrom">400$</span>
+									<span class="rating"> <input type="radio"
+										class="rating-input" id="rating-input-1-5"
+										name="rating-input-1"> <label for="rating-input-1-5"
+										class="rating-star1"> </label> <input type="radio"
+										class="rating-input" id="rating-input-1-4"
+										name="rating-input-1"> <label for="rating-input-1-4"
+										class="rating-star1"> </label> <input type="radio"
+										class="rating-input" id="rating-input-1-3"
+										name="rating-input-1"> <label for="rating-input-1-3"
+										class="rating-star"> </label> <input type="radio"
+										class="rating-input" id="rating-input-1-2"
+										name="rating-input-1"> <label for="rating-input-1-2"
+										class="rating-star"> </label> <input type="radio"
+										class="rating-input" id="rating-input-1-1"
+										name="rating-input-1"> <label for="rating-input-1-1"
+										class="rating-star"> </label>
+									</span>
+								</div>
+								<a class="now-get get-cart" href="#">ADD TO CART</a>
+								<div class="clearfix"></div>
+							</div>
+						</div>
+					</div>
+					<div class="clearfix"></div>
 				</div>
+				<div class="products">
+					<h5 class="latest-product">LATEST PRODUCTS</h5>
+					<a class="view-all" href="product.html">VIEW ALL<span> </span></a>
+				</div>
+				<div class="product-left">
+					<div class=" chain-grid">
+						<a href="http://127.0.0.1:8080/ShopSite/single.jsp"><img
+							class="img-responsive chain" src="resources/images/bott.jpg"
+							alt=" " /></a> <span class="star"> </span>
+						<div class="grid-chain-bottom">
+							<h6>Lorem ipsum dolor</h6>
+							<div class="star-price">
+								<div class="dolor-grid">
+									<span class="actual">300$</span> <span class="reducedfrom">400$</span>
+									<span class="rating"> <input type="radio"
+										class="rating-input" id="rating-input-1-5"
+										name="rating-input-1"> <label for="rating-input-1-5"
+										class="rating-star1"> </label> <input type="radio"
+										class="rating-input" id="rating-input-1-4"
+										name="rating-input-1"> <label for="rating-input-1-4"
+										class="rating-star1"> </label> <input type="radio"
+										class="rating-input" id="rating-input-1-3"
+										name="rating-input-1"> <label for="rating-input-1-3"
+										class="rating-star"> </label> <input type="radio"
+										class="rating-input" id="rating-input-1-2"
+										name="rating-input-1"> <label for="rating-input-1-2"
+										class="rating-star"> </label> <input type="radio"
+										class="rating-input" id="rating-input-1-1"
+										name="rating-input-1"> <label for="rating-input-1-1"
+										class="rating-star"> </label>
+									</span>
+								</div>
+								<a class="now-get get-cart" href="#">ADD TO CART</a>
+								<div class="clearfix"></div>
+							</div>
+						</div>
+					</div>
+					<div class=" chain-grid">
+						<a href="http://127.0.0.1:8080/ShopSite/single.jsp"><img
+							class="img-responsive chain" src="resources/images/bottle.jpg"
+							alt=" " /></a> <span class="star"> </span>
+						<div class="grid-chain-bottom">
+							<h6>Lorem ipsum dolor</h6>
+							<div class="star-price">
+								<div class="dolor-grid">
+									<span class="actual">300$</span> <span class="reducedfrom">400$</span>
+									<span class="rating"> <input type="radio"
+										class="rating-input" id="rating-input-1-5"
+										name="rating-input-1"> <label for="rating-input-1-5"
+										class="rating-star1"> </label> <input type="radio"
+										class="rating-input" id="rating-input-1-4"
+										name="rating-input-1"> <label for="rating-input-1-4"
+										class="rating-star1"> </label> <input type="radio"
+										class="rating-input" id="rating-input-1-3"
+										name="rating-input-1"> <label for="rating-input-1-3"
+										class="rating-star"> </label> <input type="radio"
+										class="rating-input" id="rating-input-1-2"
+										name="rating-input-1"> <label for="rating-input-1-2"
+										class="rating-star"> </label> <input type="radio"
+										class="rating-input" id="rating-input-1-1"
+										name="rating-input-1"> <label for="rating-input-1-1"
+										class="rating-star"> </label>
+									</span>
+								</div>
+								<a class="now-get get-cart" href="#">ADD TO CART</a>
+								<div class="clearfix"></div>
+							</div>
+						</div>
+					</div>
+					<div class=" chain-grid grid-top-chain">
+						<a href="http://127.0.0.1:8080/ShopSite/single.jsp"><img
+							class="img-responsive chain" src="resources/images/baa.jpg"
+							alt=" " /></a> <span class="star"> </span>
+						<div class="grid-chain-bottom">
+							<h6>Lorem ipsum dolor</h6>
+							<div class="star-price">
+								<div class="dolor-grid">
+									<span class="actual">300$</span> <span class="reducedfrom">400$</span>
+									<span class="rating"> <input type="radio"
+										class="rating-input" id="rating-input-1-5"
+										name="rating-input-1"> <label for="rating-input-1-5"
+										class="rating-star1"> </label> <input type="radio"
+										class="rating-input" id="rating-input-1-4"
+										name="rating-input-1"> <label for="rating-input-1-4"
+										class="rating-star1"> </label> <input type="radio"
+										class="rating-input" id="rating-input-1-3"
+										name="rating-input-1"> <label for="rating-input-1-3"
+										class="rating-star"> </label> <input type="radio"
+										class="rating-input" id="rating-input-1-2"
+										name="rating-input-1"> <label for="rating-input-1-2"
+										class="rating-star"> </label> <input type="radio"
+										class="rating-input" id="rating-input-1-1"
+										name="rating-input-1"> <label for="rating-input-1-1"
+										class="rating-star"> </label>
+									</span>
+								</div>
+								<a class="now-get get-cart" href="#">ADD TO CART</a>
+								<div class="clearfix"></div>
+							</div>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="clearfix"></div>
 			</div>
-			<a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-			<a class="right carousel-control" href="#myCarousel"
-				data-slide="next">&rsaquo;</a>
-		</div>
-	</div>
-	<div id="mainBody">
-		<div class="container">
-			<div class="row">
-				<!-- Sidebar ================================================== -->
-				<div id="sidebar" class="span3">
-					<div class="well well-small">
-						<a id="myCart" href="product_summary.html"><img
-							src="resources/themes/images/ico-cart.png" alt="cart">3
-							Items in your cart <span class="badge badge-warning pull-right">$155.00</span></a>
-					</div>
-					<ul id="sideManu" class="nav nav-tabs nav-stacked">
-						<li class="subMenu open"><a> ELECTRONICS [230]</a>
-							<ul>
-								<li><a class="active" href="products.html"><i
-										class="icon-chevron-right"></i>Cameras (100) </a></li>
-								<li><a href="products.html"><i
-										class="icon-chevron-right"></i>Computers, Tablets & laptop
-										(30)</a></li>
-								<li><a href="products.html"><i
-										class="icon-chevron-right"></i>Mobile Phone (80)</a></li>
-								<li><a href="products.html"><i
-										class="icon-chevron-right"></i>Sound & Vision (15)</a></li>
+			<div class="sub-cate">
+				<div class=" top-nav rsidebar span_1_of_left">
+					<h3 class="cate">CATEGORIES</h3>
+					<ul class="menu">
+						<li class="item1"><a href="#">Curabitur sapien<img
+								class="arrow-img" src="resources/images/arrow1.png" alt="" />
+						</a>
+							<ul class="cute">
+								<li class="subitem1"><a
+									href="http://127.0.0.1:8080/ShopSite/product.jsp">Cute
+										Kittens </a></li>
+								<li class="subitem2"><a
+									href="http://127.0.0.1:8080/ShopSite/product.jsp">Strange
+										Stuff </a></li>
+								<li class="subitem3"><a
+									href="http://127.0.0.1:8080/ShopSite/product.jsp">Automatic
+										Fails </a></li>
 							</ul></li>
-						<li class="subMenu"><a> CLOTHES [840] </a>
-							<ul style="display: none">
-								<li><a href="products.html"><i
-										class="icon-chevron-right"></i>Women's Clothing (45)</a></li>
-								<li><a href="products.html"><i
-										class="icon-chevron-right"></i>Women's Shoes (8)</a></li>
-								<li><a href="products.html"><i
-										class="icon-chevron-right"></i>Women's Hand Bags (5)</a></li>
-								<li><a href="products.html"><i
-										class="icon-chevron-right"></i>Men's Clothings (45)</a></li>
-								<li><a href="products.html"><i
-										class="icon-chevron-right"></i>Men's Shoes (6)</a></li>
-								<li><a href="products.html"><i
-										class="icon-chevron-right"></i>Kids Clothing (5)</a></li>
-								<li><a href="products.html"><i
-										class="icon-chevron-right"></i>Kids Shoes (3)</a></li>
+						<li class="item2"><a href="#">Dignissim purus <img
+								class="arrow-img " src="resources/images/arrow1.png" alt="" /></a>
+							<ul class="cute">
+								<li class="subitem1"><a
+									href="http://127.0.0.1:8080/ShopSite/product.jsp">Cute
+										Kittens </a></li>
+								<li class="subitem2"><a
+									href="http://127.0.0.1:8080/ShopSite/product.jsp">Strange
+										Stuff </a></li>
+								<li class="subitem3"><a
+									href="http://127.0.0.1:8080/ShopSite/product.jsp">Automatic
+										Fails </a></li>
 							</ul></li>
-						<li class="subMenu"><a>FOOD AND BEVERAGES [1000]</a>
-							<ul style="display: none">
-								<li><a href="products.html"><i
-										class="icon-chevron-right"></i>Angoves (35)</a></li>
-								<li><a href="products.html"><i
-										class="icon-chevron-right"></i>Bouchard Aine & Fils (8)</a></li>
-								<li><a href="products.html"><i
-										class="icon-chevron-right"></i>French Rabbit (5)</a></li>
-								<li><a href="products.html"><i
-										class="icon-chevron-right"></i>Louis Bernard (45)</a></li>
-								<li><a href="products.html"><i
-										class="icon-chevron-right"></i>BIB Wine (Bag in Box) (8)</a></li>
-								<li><a href="products.html"><i
-										class="icon-chevron-right"></i>Other Liquors & Wine (5)</a></li>
-								<li><a href="products.html"><i
-										class="icon-chevron-right"></i>Garden (3)</a></li>
-								<li><a href="products.html"><i
-										class="icon-chevron-right"></i>Khao Shong (11)</a></li>
+						<li class="item3"><a href="#">Ultrices id du<img
+								class="arrow-img img-arrow" src="resources/images/arrow1.png"
+								alt="" />
+						</a>
+							<ul class="cute">
+								<li class="subitem1"><a
+									href="http://127.0.0.1:8080/ShopSite/product.jsp">Cute
+										Kittens </a></li>
+								<li class="subitem2"><a
+									href="http://127.0.0.1:8080/ShopSite/product.jsp">Strange
+										Stuff </a></li>
+								<li class="subitem3"><a
+									href="http://127.0.0.1:8080/ShopSite/product.jsp">Automatic
+										Fails</a></li>
 							</ul></li>
-						<li><a href="products.html">HEALTH & BEAUTY [18]</a></li>
-						<li><a href="products.html">SPORTS & LEISURE [58]</a></li>
-						<li><a href="products.html">BOOKS & ENTERTAINMENTS [14]</a></li>
+						<li class="item4"><a href="#">Cras iacaus rhone <img
+								class="arrow-img img-left-arrow"
+								src="resources/images/arrow1.png" alt="" /></a>
+							<ul class="cute">
+								<li class="subitem1"><a
+									href="http://127.0.0.1:8080/ShopSite/product.jsp">Cute
+										Kittens </a></li>
+								<li class="subitem2"><a
+									href="http://127.0.0.1:8080/ShopSite/product.jsp">Strange
+										Stuff </a></li>
+								<li class="subitem3"><a
+									href="http://127.0.0.1:8080/ShopSite/product.jsp">Automatic
+										Fails </a></li>
+							</ul></li>
+						<li>
+							<ul class="kid-menu">
+								<li><a href="http://127.0.0.1:8080/ShopSite/product.jsp">Tempus
+										pretium</a></li>
+								<li><a href="http://127.0.0.1:8080/ShopSite/product.jsp">Dignissim
+										neque</a></li>
+								<li><a href="http://127.0.0.1:8080/ShopSite/product.jsp">Ornared
+										id aliquet</a></li>
+							</ul>
+						</li>
+						<ul class="kid-menu ">
+							<li><a href="http://127.0.0.1:8080/ShopSite/product.jsp">Commodo
+									sit</a></li>
+							<li><a href="http://127.0.0.1:8080/ShopSite/product.jsp">Urna
+									ac tortor sc</a></li>
+							<li><a href="http://127.0.0.1:8080/ShopSite/product.jsp">Ornared
+									id aliquet</a></li>
+							<li><a href="http://127.0.0.1:8080/ShopSite/product.jsp">Urna
+									ac tortor sc</a></li>
+							<li><a href="http://127.0.0.1:8080/ShopSite/product.jsp">Eget
+									nisi laoreet</a></li>
+							<li><a href="http://127.0.0.1:8080/ShopSite/product.jsp">Faciisis
+									ornare</a></li>
+							<li class="menu-kid-left"><a
+								href="http://127.0.0.1:8080/ShopSite/contact.jsp">Contact us</a></li>
+						</ul>
 					</ul>
-					<br />
-					<div class="thumbnail">
-						<img src="resources/themes/images/products/panasonic.jpg"
-							alt="Bootshop panasonoc New camera" />
-						<div class="caption">
-							<h5>Panasonic</h5>
-							<h4 style="text-align: center">
-								<a class="btn" href="product_details.html"> <i
-									class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i
-									class="icon-shopping-cart"></i></a> <a class="btn btn-primary"
-									href="#">$222.00</a>
-							</h4>
-						</div>
-					</div>
-					<br />
-					<div class="thumbnail">
-						<img src="resources/themes/images/products/kindle.png"
-							title="Bootshop New Kindel" alt="Bootshop Kindel">
-						<div class="caption">
-							<h5>Kindle</h5>
-							<h4 style="text-align: center">
-								<a class="btn" href="product_details.html"> <i
-									class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i
-									class="icon-shopping-cart"></i></a> <a class="btn btn-primary"
-									href="#">$222.00</a>
-							</h4>
-						</div>
-					</div>
-					<br />
-					<div class="thumbnail">
-						<img src="resources/themes/images/payment_methods.png"
-							title="Bootshop Payment Methods" alt="Payments Methods">
-						<div class="caption">
-							<h5>Payment Methods</h5>
-						</div>
+				</div>
+				<!--initiate accordion-->
+				<script type="text/javascript">
+					$(function() {
+						var menu_ul = $('.menu > li > ul'), menu_a = $('.menu > li > a');
+						menu_ul.hide();
+						menu_a.click(function(e) {
+							e.preventDefault();
+							if (!$(this).hasClass('active')) {
+								menu_a.removeClass('active');
+								menu_ul.filter(':visible').slideUp('normal');
+								$(this).addClass('active').next().stop(true,
+										true).slideDown('normal');
+							} else {
+								$(this).removeClass('active');
+								$(this).next().stop(true, true).slideUp(
+										'normal');
+							}
+						});
+
+					});
+				</script>
+				<div class=" chain-grid menu-chain">
+					<a href="http://127.0.0.1:8080/ShopSite/single.jsp"><img
+						class="img-responsive chain" src="resources/images/wat.jpg"
+						alt=" " /></a>
+					<div class="grid-chain-bottom chain-watch">
+						<span class="actual dolor-left-grid">300$</span> <span
+							class="reducedfrom">500$</span>
+						<h6>Lorem ipsum dolor</h6>
 					</div>
 				</div>
-				<!-- Sidebar end=============================================== -->
-				<div class="span9">
-					<div class="well well-small">
-						<h4>
-							Featured Products <small class="pull-right">200+ featured
-								products</small>
-						</h4>
-						<div class="row-fluid">
-							<div id="featured" class="carousel slide">
-								<div class="carousel-inner">
-									<div class="item active">
-										<ul class="thumbnails">
-											<li class="span3">
-												<div class="thumbnail">
-													<i class="tag"></i> <a href="product_details.html"><img
-														src="resources/themes/images/products/b1.jpg" alt=""></a>
-													<div class="caption">
-														<h5>Product name</h5>
-														<h4>
-															<a class="btn" href="product_details.html">VIEW</a> <span
-																class="pull-right">$222.00</span>
-														</h4>
-													</div>
-												</div>
-											</li>
-											<li class="span3">
-												<div class="thumbnail">
-													<i class="tag"></i> <a href="product_details.html"><img
-														src="resources/themes/images/products/b2.jpg" alt=""></a>
-													<div class="caption">
-														<h5>Product name</h5>
-														<h4>
-															<a class="btn" href="product_details.html">VIEW</a> <span
-																class="pull-right">$222.00</span>
-														</h4>
-													</div>
-												</div>
-											</li>
-											<li class="span3">
-												<div class="thumbnail">
-													<i class="tag"></i> <a href="product_details.html"><img
-														src="resources/themes/images/products/b3.jpg" alt=""></a>
-													<div class="caption">
-														<h5>Product name</h5>
-														<h4>
-															<a class="btn" href="product_details.html">VIEW</a> <span
-																class="pull-right">$222.00</span>
-														</h4>
-													</div>
-												</div>
-											</li>
-											<li class="span3">
-												<div class="thumbnail">
-													<i class="tag"></i> <a href="product_details.html"><img
-														src="resources/themes/images/products/b4.jpg" alt=""></a>
-													<div class="caption">
-														<h5>Product name</h5>
-														<h4>
-															<a class="btn" href="product_details.html">VIEW</a> <span
-																class="pull-right">$222.00</span>
-														</h4>
-													</div>
-												</div>
-											</li>
-										</ul>
-									</div>
-									<div class="item">
-										<ul class="thumbnails">
-											<li class="span3">
-												<div class="thumbnail">
-													<i class="tag"></i> <a href="product_details.html"><img
-														src="resources/themes/images/products/5.jpg" alt=""></a>
-													<div class="caption">
-														<h5>Product name</h5>
-														<h4>
-															<a class="btn" href="product_details.html">VIEW</a> <span
-																class="pull-right">$222.00</span>
-														</h4>
-													</div>
-												</div>
-											</li>
-											<li class="span3">
-												<div class="thumbnail">
-													<i class="tag"></i> <a href="product_details.html"><img
-														src="resources/themes/images/products/6.jpg" alt=""></a>
-													<div class="caption">
-														<h5>Product name</h5>
-														<h4>
-															<a class="btn" href="product_details.html">VIEW</a> <span
-																class="pull-right">$222.00</span>
-														</h4>
-													</div>
-												</div>
-											</li>
-											<li class="span3">
-												<div class="thumbnail">
-													<a href="product_details.html"><img
-														src="resources/themes/images/products/7.jpg" alt=""></a>
-													<div class="caption">
-														<h5>Product name</h5>
-														<h4>
-															<a class="btn" href="product_details.html">VIEW</a> <span
-																class="pull-right">$222.00</span>
-														</h4>
-													</div>
-												</div>
-											</li>
-											<li class="span3">
-												<div class="thumbnail">
-													<a href="product_details.html"><img
-														src="resources/themes/images/products/8.jpg" alt=""></a>
-													<div class="caption">
-														<h5>Product name</h5>
-														<h4>
-															<a class="btn" href="product_details.html">VIEW</a> <span
-																class="pull-right">$222.00</span>
-														</h4>
-													</div>
-												</div>
-											</li>
-										</ul>
-									</div>
-									<div class="item">
-										<ul class="thumbnails">
-											<li class="span3">
-												<div class="thumbnail">
-													<a href="product_details.html"><img
-														src="resources/themes/images/products/9.jpg" alt=""></a>
-													<div class="caption">
-														<h5>Product name</h5>
-														<h4>
-															<a class="btn" href="product_details.html">VIEW</a> <span
-																class="pull-right">$222.00</span>
-														</h4>
-													</div>
-												</div>
-											</li>
-											<li class="span3">
-												<div class="thumbnail">
-													<a href="product_details.html"><img
-														src="resources/themes/images/products/10.jpg" alt=""></a>
-													<div class="caption">
-														<h5>Product name</h5>
-														<h4>
-															<a class="btn" href="product_details.html">VIEW</a> <span
-																class="pull-right">$222.00</span>
-														</h4>
-													</div>
-												</div>
-											</li>
-											<li class="span3">
-												<div class="thumbnail">
-													<a href="product_details.html"><img
-														src="resources/themes/images/products/11.jpg" alt=""></a>
-													<div class="caption">
-														<h5>Product name</h5>
-														<h4>
-															<a class="btn" href="product_details.html">VIEW</a> <span
-																class="pull-right">$222.00</span>
-														</h4>
-													</div>
-												</div>
-											</li>
-											<li class="span3">
-												<div class="thumbnail">
-													<a href="product_details.html"><img
-														src="resources/themes/images/products/1.jpg" alt=""></a>
-													<div class="caption">
-														<h5>Product name</h5>
-														<h4>
-															<a class="btn" href="product_details.html">VIEW</a> <span
-																class="pull-right">$222.00</span>
-														</h4>
-													</div>
-												</div>
-											</li>
-										</ul>
-									</div>
-									<div class="item">
-										<ul class="thumbnails">
-											<li class="span3">
-												<div class="thumbnail">
-													<a href="product_details.html"><img
-														src="resources/themes/images/products/2.jpg" alt=""></a>
-													<div class="caption">
-														<h5>Product name</h5>
-														<h4>
-															<a class="btn" href="product_details.html">VIEW</a> <span
-																class="pull-right">$222.00</span>
-														</h4>
-													</div>
-												</div>
-											</li>
-											<li class="span3">
-												<div class="thumbnail">
-													<a href="product_details.html"><img
-														src="resources/themes/images/products/3.jpg" alt=""></a>
-													<div class="caption">
-														<h5>Product name</h5>
-														<h4>
-															<a class="btn" href="product_details.html">VIEW</a> <span
-																class="pull-right">$222.00</span>
-														</h4>
-													</div>
-												</div>
-											</li>
-											<li class="span3">
-												<div class="thumbnail">
-													<a href="product_details.html"><img
-														src="resources/themes/images/products/4.jpg" alt=""></a>
-													<div class="caption">
-														<h5>Product name</h5>
-														<h4>
-															<a class="btn" href="product_details.html">VIEW</a> <span
-																class="pull-right">$222.00</span>
-														</h4>
-													</div>
-												</div>
-											</li>
-											<li class="span3">
-												<div class="thumbnail">
-													<a href="product_details.html"><img
-														src="resources/themes/images/products/5.jpg" alt=""></a>
-													<div class="caption">
-														<h5>Product name</h5>
-														<h4>
-															<a class="btn" href="product_details.html">VIEW</a> <span
-																class="pull-right">$222.00</span>
-														</h4>
-													</div>
-												</div>
-											</li>
-										</ul>
-									</div>
-								</div>
-								<a class="left carousel-control" href="#featured"
-									data-slide="prev">‹</a> <a class="right carousel-control"
-									href="#featured" data-slide="next">›</a>
-							</div>
-						</div>
+				<a class="view-all all-product" href="product.jsp">VIEW ALL
+					PRODUCTS<span> </span>
+				</a>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<!---->
+	<div class="footer">
+		<div class="footer-top">
+			<div class="container">
+				<div class="latter">
+					<h6>NEWS-LATTER</h6>
+					<div class="sub-left-right">
+						<form>
+							<input type="text" value="Enter email here"
+								onfocus="this.value = '';"
+								onblur="if (this.value == '') {this.value = 'Enter email here';}" />
+							<input type="submit" value="SUBSCRIBE" />
+						</form>
 					</div>
-					<h4>Latest Products</h4>
-					<ul class="thumbnails">
-						<li class="span3">
-							<div class="thumbnail">
-								<a href="product_details.html"><img
-									src="resources/themes/images/products/6.jpg" alt="" /></a>
-								<div class="caption">
-									<h5>Product name</h5>
-									<p>Lorem Ipsum is simply dummy text.</p>
-
-									<h4 style="text-align: center">
-										<a class="btn" href="product_details.html"> <i
-											class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to
-											<i class="icon-shopping-cart"></i>
-										</a> <a class="btn btn-primary" href="#">$222.00</a>
-									</h4>
-								</div>
-							</div>
-						</li>
-						<li class="span3">
-							<div class="thumbnail">
-								<a href="product_details.html"><img
-									src="resources/themes/images/products/7.jpg" alt="" /></a>
-								<div class="caption">
-									<h5>Product name</h5>
-									<p>Lorem Ipsum is simply dummy text.</p>
-									<h4 style="text-align: center">
-										<a class="btn" href="product_details.html"> <i
-											class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to
-											<i class="icon-shopping-cart"></i>
-										</a> <a class="btn btn-primary" href="#">$222.00</a>
-									</h4>
-								</div>
-							</div>
-						</li>
-						<li class="span3">
-							<div class="thumbnail">
-								<a href="product_details.html"><img
-									src="resources/themes/images/products/8.jpg" alt="" /></a>
-								<div class="caption">
-									<h5>Product name</h5>
-									<p>Lorem Ipsum is simply dummy text.</p>
-									<h4 style="text-align: center">
-										<a class="btn" href="product_details.html"> <i
-											class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to
-											<i class="icon-shopping-cart"></i>
-										</a> <a class="btn btn-primary" href="#">$222.00</a>
-									</h4>
-								</div>
-							</div>
-						</li>
-						<li class="span3">
-							<div class="thumbnail">
-								<a href="product_details.html"><img
-									src="resources/themes/images/products/9.jpg" alt="" /></a>
-								<div class="caption">
-									<h5>Product name</h5>
-									<p>Lorem Ipsum is simply dummy text.</p>
-									<h4 style="text-align: center">
-										<a class="btn" href="product_details.html"> <i
-											class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to
-											<i class="icon-shopping-cart"></i>
-										</a> <a class="btn btn-primary" href="#">$222.00</a>
-									</h4>
-								</div>
-							</div>
-						</li>
-						<li class="span3">
-							<div class="thumbnail">
-								<a href="product_details.html"><img
-									src="resources/themes/images/products/10.jpg" alt="" /></a>
-								<div class="caption">
-									<h5>Product name</h5>
-									<p>Lorem Ipsum is simply dummy text.</p>
-									<h4 style="text-align: center">
-										<a class="btn" href="product_details.html"> <i
-											class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to
-											<i class="icon-shopping-cart"></i>
-										</a> <a class="btn btn-primary" href="#">$222.00</a>
-									</h4>
-								</div>
-							</div>
-						</li>
-						<li class="span3">
-							<div class="thumbnail">
-								<a href="product_details.html"><img
-									src="resources/themes/images/products/11.jpg" alt="" /></a>
-								<div class="caption">
-									<h5>Product name</h5>
-									<p>Lorem Ipsum is simply dummy text.</p>
-									<h4 style="text-align: center">
-										<a class="btn" href="product_details.html"> <i
-											class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to
-											<i class="icon-shopping-cart"></i>
-										</a> <a class="btn btn-primary" href="#">$222.00</a>
-									</h4>
-								</div>
-							</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="latter-right">
+					<p>FOLLOW US</p>
+					<ul class="face-in-to">
+						<li><a href="#"><span> </span></a></li>
+						<li><a href="#"><span class="facebook-in"> </span></a></li>
+						<div class="clearfix"></div>
+					</ul>
+					<div class="clearfix"></div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			<div class="container">
+				<div class="footer-bottom-cate">
+					<h6>CATEGORIES</h6>
+					<ul>
+						<li><a href="#">Curabitur sapien</a></li>
+						<li><a href="#">Dignissim purus</a></li>
+						<li><a href="#">Tempus pretium</a></li>
+						<li><a href="#">Dignissim neque</a></li>
+						<li><a href="#">Ornared id aliquet</a></li>
+						<li><a href="#">Ultrices id du</a></li>
+						<li><a href="#">Commodo sit</a></li>
+						<li><a href="#">Urna ac tortor sc</a></li>
+						<li><a href="#">Ornared id aliquet</a></li>
+						<li><a href="#">Urna ac tortor sc</a></li>
+						<li><a href="#">Eget nisi laoreet</a></li>
+						<li><a href="#">Faciisis ornare</a></li>
+					</ul>
+				</div>
+				<div class="footer-bottom-cate bottom-grid-cat">
+					<h6>FEATURE PROJECTS</h6>
+					<ul>
+						<li><a href="#">Curabitur sapien</a></li>
+						<li><a href="#">Dignissim purus</a></li>
+						<li><a href="#">Tempus pretium</a></li>
+						<li><a href="#">Dignissim neque</a></li>
+						<li><a href="#">Ornared id aliquet</a></li>
+						<li><a href="#">Ultrices id du</a></li>
+						<li><a href="#">Commodo sit</a></li>
+					</ul>
+				</div>
+				<div class="footer-bottom-cate">
+					<h6>TOP BRANDS</h6>
+					<ul>
+						<li><a href="#">Curabitur sapien</a></li>
+						<li><a href="#">Dignissim purus</a></li>
+						<li><a href="#">Tempus pretium</a></li>
+						<li><a href="#">Dignissim neque</a></li>
+						<li><a href="#">Ornared id aliquet</a></li>
+						<li><a href="#">Ultrices id du</a></li>
+						<li><a href="#">Commodo sit</a></li>
+						<li><a href="#">Urna ac tortor sc</a></li>
+						<li><a href="#">Ornared id aliquet</a></li>
+						<li><a href="#">Urna ac tortor sc</a></li>
+						<li><a href="#">Eget nisi laoreet</a></li>
+						<li><a href="#">Faciisis ornare</a></li>
+					</ul>
+				</div>
+				<div class="footer-bottom-cate cate-bottom">
+					<h6>OUR ADDERSS</h6>
+					<ul>
+						<li>Aliquam metus dui.</li>
+						<li>orci, ornareidquet</li>
+						<li>ut,DUI.</li>
+						<li>nisi, dignissim</li>
+						<li>gravida at.</li>
+						<li class="phone">PH : 6985792466</li>
+						<li class="temp">
+							<p class="footer-class">
+								Copyright &copy; 2015.Company name All rights reserved.<a
+									target="_blank" href="http://www.sucai888.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a>
+							</p>
 						</li>
 					</ul>
-
 				</div>
+				<div class="clearfix"></div>
 			</div>
 		</div>
 	</div>
-	<!-- Footer ================================================================== -->
-	<div id="footerSection">
-		<div class="container">
-			<div class="row">
-				<div class="span3">
-					<h5>ACCOUNT</h5>
-					<a href="login.html">YOUR ACCOUNT</a> <a href="login.html">PERSONAL
-						INFORMATION</a> <a href="login.html">ADDRESSES</a> <a
-						href="login.html">DISCOUNT</a> <a href="login.html">ORDER
-						HISTORY</a>
-				</div>
-				<div class="span3">
-					<h5>INFORMATION</h5>
-					<a href="contact.html">CONTACT</a> <a href="register.html">REGISTRATION</a>
-					<a href="legal_notice.html">LEGAL NOTICE</a> <a href="tac.html">TERMS
-						AND CONDITIONS</a> <a href="faq.html">FAQ</a>
-				</div>
-				<div class="span3">
-					<h5>OUR OFFERS</h5>
-					<a href="#">NEW PRODUCTS</a> <a href="#">TOP SELLERS</a> <a
-						href="special_offer.html">SPECIAL OFFERS</a> <a href="#">MANUFACTURERS</a>
-					<a href="#">SUPPLIERS</a>
-				</div>
-				<div id="socialMedia" class="span3 pull-right">
-					<h5>SOCIAL MEDIA</h5>
-					<a href="#"><img width="60" height="60"
-						src="resources/themes/images/facebook.png" title="facebook"
-						alt="facebook" /></a> <a href="#"><img width="60" height="60"
-						src="resources/themes/images/twitter.png" title="twitter"
-						alt="twitter" /></a> <a href="#"><img width="60" height="60"
-						src="resources/themes/images/youtube.png" title="youtube"
-						alt="youtube" /></a>
-				</div>
-			</div>
-			<p class="pull-right">&copy; Bootshop</p>
-		</div>
-		<!-- Container End -->
+	<div style="display: none">
+		<script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540'
+			language='JavaScript' charset='utf-8'></script>
 	</div>
-	<!-- Placed at the end of the document so the pages load faster ============================================= -->
-	<script src="resources/themes/js/jquery.js" type="text/javascript"></script>
-	<script src="resources/themes/js/bootstrap.min.js"
-		type="text/javascript"></script>
-	<script src="resources/themes/js/google-code-prettify/prettify.js"></script>
-
-	<script src="resources/themes/js/bootshop.js"></script>
-	<script src="resources/themes/js/jquery.lightbox-0.5.js"></script>
-
-	<!-- resources/themes switcher section ============================================================================================= -->
-	<div id="secectionBox">
-		<link rel="stylesheet"
-			href="resources/themes/switch/resources/themeswitch.css"
-			type="text/css" media="screen" />
-		<script src="resources/themes/switch/theamswitcher.js"
-			type="text/javascript" charset="utf-8"></script>
-		<div id="themeContainer">
-			<div id="hideme" class="themeTitle">Style Selector</div>
-			<div class="themeName">Oregional Skin</div>
-			<div class="images style">
-				<a href="resources/themes/css/#" name="bootshop"><img
-					src="resources/themes/switch/images/clr/bootshop.png"
-					alt="bootstrap business templates" class="active"></a> <a
-					href="resources/themes/css/#" name="businessltd"><img
-					src="resources/themes/switch/images/clr/businessltd.png"
-					alt="bootstrap business templates" class="active"></a>
-			</div>
-			<div class="themeName">Bootswatch Skins (11)</div>
-			<div class="images style">
-				<a href="resources/themes/css/#" name="amelia" title="Amelia"><img
-					src="resources/themes/switch/images/clr/amelia.png"
-					alt="bootstrap business templates"></a> <a
-					href="resources/themes/css/#" name="spruce" title="Spruce"><img
-					src="resources/themes/switch/images/clr/spruce.png"
-					alt="bootstrap business templates"></a> <a
-					href="resources/themes/css/#" name="superhero" title="Superhero"><img
-					src="resources/themes/switch/images/clr/superhero.png"
-					alt="bootstrap business templates"></a> <a
-					href="resources/themes/css/#" name="cyborg"><img
-					src="resources/themes/switch/images/clr/cyborg.png"
-					alt="bootstrap business templates"></a> <a
-					href="resources/themes/css/#" name="cerulean"><img
-					src="resources/themes/switch/images/clr/cerulean.png"
-					alt="bootstrap business templates"></a> <a
-					href="resources/themes/css/#" name="journal"><img
-					src="resources/themes/switch/images/clr/journal.png"
-					alt="bootstrap business templates"></a> <a
-					href="resources/themes/css/#" name="readable"><img
-					src="resources/themes/switch/images/clr/readable.png"
-					alt="bootstrap business templates"></a> <a
-					href="resources/themes/css/#" name="simplex"><img
-					src="resources/themes/switch/images/clr/simplex.png"
-					alt="bootstrap business templates"></a> <a
-					href="resources/themes/css/#" name="slate"><img
-					src="resources/themes/switch/images/clr/slate.png"
-					alt="bootstrap business templates"></a> <a
-					href="resources/themes/css/#" name="spacelab"><img
-					src="resources/themes/switch/images/clr/spacelab.png"
-					alt="bootstrap business templates"></a> <a
-					href="resources/themes/css/#" name="united"><img
-					src="resources/themes/switch/images/clr/united.png"
-					alt="bootstrap business templates"></a>
-				<p
-					style="margin: 0; line-height: normal; margin-left: -10px; display: none;">
-					<small>These are just examples and you can build your own
-						color scheme in the backend.</small>
-				</p>
-			</div>
-			<div class="themeName">Background Patterns</div>
-			<div class="images patterns">
-				<a href="resources/themes/css/#" name="pattern1"><img
-					src="resources/themes/switch/images/pattern/pattern1.png"
-					alt="bootstrap business templates" class="active"></a> <a
-					href="resources/themes/css/#" name="pattern2"><img
-					src="resources/themes/switch/images/pattern/pattern2.png"
-					alt="bootstrap business templates"></a> <a
-					href="resources/themes/css/#" name="pattern3"><img
-					src="resources/themes/switch/images/pattern/pattern3.png"
-					alt="bootstrap business templates"></a> <a
-					href="resources/themes/css/#" name="pattern4"><img
-					src="resources/themes/switch/images/pattern/pattern4.png"
-					alt="bootstrap business templates"></a> <a
-					href="resources/themes/css/#" name="pattern5"><img
-					src="resources/themes/switch/images/pattern/pattern5.png"
-					alt="bootstrap business templates"></a> <a
-					href="resources/themes/css/#" name="pattern6"><img
-					src="resources/themes/switch/images/pattern/pattern6.png"
-					alt="bootstrap business templates"></a> <a
-					href="resources/themes/css/#" name="pattern7"><img
-					src="resources/themes/switch/images/pattern/pattern7.png"
-					alt="bootstrap business templates"></a> <a
-					href="resources/themes/css/#" name="pattern8"><img
-					src="resources/themes/switch/images/pattern/pattern8.png"
-					alt="bootstrap business templates"></a> <a
-					href="resources/themes/css/#" name="pattern9"><img
-					src="resources/themes/switch/images/pattern/pattern9.png"
-					alt="bootstrap business templates"></a> <a
-					href="resources/themes/css/#" name="pattern10"><img
-					src="resources/themes/switch/images/pattern/pattern10.png"
-					alt="bootstrap business templates"></a> <a
-					href="resources/themes/css/#" name="pattern11"><img
-					src="resources/themes/switch/images/pattern/pattern11.png"
-					alt="bootstrap business templates"></a> <a
-					href="resources/themes/css/#" name="pattern12"><img
-					src="resources/themes/switch/images/pattern/pattern12.png"
-					alt="bootstrap business templates"></a> <a
-					href="resources/themes/css/#" name="pattern13"><img
-					src="resources/themes/switch/images/pattern/pattern13.png"
-					alt="bootstrap business templates"></a> <a
-					href="resources/themes/css/#" name="pattern14"><img
-					src="resources/themes/switch/images/pattern/pattern14.png"
-					alt="bootstrap business templates"></a> <a
-					href="resources/themes/css/#" name="pattern15"><img
-					src="resources/themes/switch/images/pattern/pattern15.png"
-					alt="bootstrap business templates"></a> <a
-					href="resources/themes/css/#" name="pattern16"><img
-					src="resources/themes/switch/images/pattern/pattern16.png"
-					alt="bootstrap business templates"></a> <a
-					href="resources/themes/css/#" name="pattern17"><img
-					src="resources/themes/switch/images/pattern/pattern17.png"
-					alt="bootstrap business templates"></a> <a
-					href="resources/themes/css/#" name="pattern18"><img
-					src="resources/themes/switch/images/pattern/pattern18.png"
-					alt="bootstrap business templates"></a> <a
-					href="resources/themes/css/#" name="pattern19"><img
-					src="resources/themes/switch/images/pattern/pattern19.png"
-					alt="bootstrap business templates"></a> <a
-					href="resources/themes/css/#" name="pattern20"><img
-					src="resources/themes/switch/images/pattern/pattern20.png"
-					alt="bootstrap business templates"></a>
-
-			</div>
-		</div>
-	</div>
-	<span id="resources/themesBtn"></span>
 </body>
 </html>

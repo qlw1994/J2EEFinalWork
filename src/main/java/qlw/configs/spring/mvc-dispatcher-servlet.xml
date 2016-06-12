@@ -82,8 +82,6 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 	<!--静态文件的访问 -->
-	<mvc:resources mapping="/themes/**" location="/resources/themes/"
-		cache-period="31556926" />
 	<mvc:resources mapping="/images/**" location="/resources/images/"
 		cache-period="31556926" />
 

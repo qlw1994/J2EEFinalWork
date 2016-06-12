@@ -18,6 +18,7 @@
 <script
 	src="http://ajax.useso.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="resources/js/login.js" type="text/javascript"></script>
+
 </head>
 <body>
 
@@ -45,7 +46,10 @@
 				<input type="submit" value="登录">
 			</div>
 		</form>
-		<div class="signin"><a href="http://127.0.0.1:8080/ShopSite/register.jsp"><input type="submit" value="注册"></a></div>
+		<div class="signin">
+			<a href="http://127.0.0.1:8080/ShopSite/register.jsp"><input
+				type="submit" value="注册"></a>
+		</div>
 	</div>
 	<div class="copy-rights">
 		<p>Copyright &copy; 2016.csxy@i1i2 All rights reserved.</p>

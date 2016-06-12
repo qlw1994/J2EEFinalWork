@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UFT-8">
+<meta http-equiv="refresh" content="2;url=http://127.0.0.1:8080/ShopSite/register.jsp">
 <title>Insert title here</title>
 </head>
 <body>
