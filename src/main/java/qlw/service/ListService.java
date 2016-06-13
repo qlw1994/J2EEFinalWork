@@ -43,13 +43,13 @@ public class ListService implements ServiceInterface {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public Page queryForPage_Customers(int currentPage, int pageSize) {
 		Page page = new Page();
-		String hql = "from Customer where cremove is null";
+		String hql = "from Customer where cremove is NULL";
 		// 总记录数
 		int allRow = customerDao.getAllRowCount(hql, null);
 		// 当前页开始记录
 		int offset = page.countOffset(currentPage, pageSize);
 		// 分页查询结果集
-		List<Customer> list = customerDao.findByPage(offset, pageSize);
+		List<Customer> list = customerDao.findByPageNotRemove(offset, pageSize);
 
 		page.setPageNo(currentPage);
 		page.setPageSize(pageSize);
@@ -71,7 +71,7 @@ public class ListService implements ServiceInterface {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public Page queryForPage_HeadPhotos(int currentPage, int pageSize) {
 		Page page = new Page();
-		String hql = "from Headcheck";
+		String hql = "from Headcheck where hcstate = '0'";
 		// 总记录数
 		int allRow = headcheckDao.getAllRowCount(hql, null);
 
@@ -79,11 +79,6 @@ public class ListService implements ServiceInterface {
 		int offset = page.countOffset(currentPage, pageSize);
 		// 分页查询结果集
 		List<Headcheck> list = headcheckDao.findByPageNotCheck(offset, pageSize);
-		for (Headcheck headcheck : list) {
-			if (headcheck.getHcstate().equals("1")) {
-				list.remove(headcheck);
-			}
-		}
 		page.setPageNo(currentPage);
 		page.setPageSize(pageSize);
 		page.setTotalRecords(allRow);

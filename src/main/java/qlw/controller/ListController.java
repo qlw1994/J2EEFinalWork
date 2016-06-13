@@ -23,6 +23,8 @@ public class ListController {
 	@Autowired
 	private ListService listService;
 
+	
+	
 	// 管理员审核头像
 	@RequestMapping(value = "/HeadCheck", method = RequestMethod.GET)
 	public String findAllHead(HttpServletRequest request, HttpServletResponse response) {
