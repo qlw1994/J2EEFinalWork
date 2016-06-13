@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 import qlw.service.RegisterService;
 
@@ -42,7 +43,7 @@ public class RegisterController {
 			mmap.addAttribute("register_id", id);
 			mmap.addAttribute("register_pwd", pwd);
 			registerService.registerSave(id, pwd);
-			modelAndView = new ModelAndView("redirect:/Login/RegisterLogin", mmap);
+			modelAndView = new ModelAndView(new RedirectView("Login"), mmap);
 		}
 		// FAIL
 		else {

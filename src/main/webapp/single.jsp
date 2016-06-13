@@ -57,7 +57,7 @@
 		if (photo != null && photo != "") {
 			$("#headPhoto").attr('src', photo);
 		} else {
-			$("#headPhoto").attr('src', "resources/images/avatar.png");
+			$("#headPhoto").attr('src', "http://127.0.0.1:8080/ShopSite/resources/images/avatar.png");
 		}
 
 	})

@@ -23,7 +23,7 @@ public class Customer {
 	private String cname;
 	private String cpwd;
 	private String cmoney;
-	private String ctoread;
+	private int ctoread;
 	private String curl;
 	private Date ccreate;
 	private Date cremove;
@@ -63,11 +63,11 @@ public class Customer {
 		this.cmoney = cmoney;
 	}
 
-	public String getCtoread() {
+	public int getCtoread() {
 		return ctoread;
 	}
 
-	public void setCtoread(String ctoread) {
+	public void setCtoread(int ctoread) {
 		this.ctoread = ctoread;
 	}
 

@@ -27,7 +27,7 @@ public class PersonalCenterController {
 			@RequestParam(value = "name", required = false) String name,
 			@RequestParam(value = "photo", required = false) MultipartFile file, HttpServletRequest request) {
 		ModelMap mmap = new ModelMap();
-		System.out.println("Begin PersonalCenterSave "+name);
+		System.out.println("Begin PersonalCenterSave " + name);
 		ModelAndView modelAndView = new ModelAndView();
 		mmap.addAttribute("customer_id", id);
 		if (name != null) {
@@ -50,13 +50,13 @@ public class PersonalCenterController {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			String url =(request.getContextPath()+"/resources/upload/"+fileName).replace("/ShopSite/", "");
+			String url = (request.getContextPath() + "/resources/upload/" + fileName).replace("/ShopSite/", "");
 			System.out.println(url);
 			personalCenterService.personalPhotoSave(id, url);
-			mmap.addAttribute("photoURL",url);
+			// mmap.addAttribute("photoURL",url);
 		}
 		modelAndView = new ModelAndView("home", mmap);
-		System.out.println("End PersonalCenterSave "+name);
+		System.out.println("End PersonalCenterSave " + name);
 		return modelAndView;
 	}
 }

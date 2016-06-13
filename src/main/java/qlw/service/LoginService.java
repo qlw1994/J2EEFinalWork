@@ -7,7 +7,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import qlw.interfaces.ServiceInterface;
 import qlw.dao.CustomerDao;
+import qlw.dao.SystemuserDao;
 import qlw.model.Customer;
+import qlw.model.Systemuser;
 
 @Service
 @Transactional
@@ -18,16 +20,13 @@ public class LoginService implements ServiceInterface {
 	private static final String FAIL = "2";
 	// 通过验证
 	private static final String TRUE = "1";
-
-	private CustomerDao customerDao;
-
 	@Autowired
-	public void setCustomerDao(@Qualifier("customerDao") CustomerDao cus) {
-		customerDao = cus;
-	}
+	private CustomerDao customerDao;
+	@Autowired
+	private SystemuserDao systemuserDao;
 
 	/*
-	 * 返回值 0：没有帐号 1：通过验证 2：密码错误
+	 * 普通用户登录的验证 返回值 0：没有帐号 1：通过验证 2：密码错误
 	 */
 	public String loginCheck(String id, String pwd) {
 		Customer customer = customerDao.findById(id);
@@ -39,5 +38,22 @@ public class LoginService implements ServiceInterface {
 			return FAIL;
 		}
 
+	}
+
+	// 管理员登录验证 返回值 0：没有帐号 1：通过验证 2：密码错误
+	public String systemUserLoginCheck(String id, String pwd) {
+		Systemuser systemuser = systemuserDao.findById(id);
+		if (systemuser == null) {
+			return NOTHING;
+		} else if (systemuser.getSupwd().equals(pwd)) {
+			return TRUE;
+		} else {
+			return FAIL;
+		}
+
+	}
+
+	public Systemuser getCurrentSu(String id) {
+		return systemuserDao.findById(id);
 	}
 }
