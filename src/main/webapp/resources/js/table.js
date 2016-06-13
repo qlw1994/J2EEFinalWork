@@ -17,12 +17,3 @@ function altRows(id) {
 window.onload = function() {
 	altRows('alternatecolor');
 }
-$(document).ready(function() {
-	var photo = "${photoURL}";
-	if (photo != null && photo != "") {
-		$("#headPhoto").attr('src', photo);
-	} else {
-		$("#headPhoto").attr('src', "http://127.0.0.1:8080/ShopSite/resources/images/avatar.png");
-	}
-
-})

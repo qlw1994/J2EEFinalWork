@@ -14,7 +14,11 @@
 	content="width=device-width, initial-scale=1, maximum-scale=1">
 <script type="application/x-javascript">
 	
+	
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
+
 
 </script>
 <!--fonts-->
@@ -97,20 +101,20 @@
 				</div>
 				<div class="header-bottom-right">
 					<ul class="men-grid">
-						<li><a
-							href="http://127.0.0.1:8080/ShopSite/AddressList"><span>
+						<li><a href="http://127.0.0.1:8080/ShopSite/GoodsList"><span>
+							</span>Upload Goods</a></li>
+						<li><a href="http://127.0.0.1:8080/ShopSite/AddressList"><span>
 							</span>AddressList</a></li>
 						<li><a
 							href="http://127.0.0.1:8080/ShopSite/personalCenter.jsp"><span>
 							</span>YOUR ACCOUNT</a></li>
 						<li class="login"><a
 							href="http://127.0.0.1:8080/ShopSite/login.jsp"><span>
-							</span>LOGIN</a>|</li>
+							</span>LOGIN</a></li>
+						<li class="sign-up-right"><a
+							href="http://127.0.0.1:8080/ShopSite/register.jsp">SIGNUP</a></li>
 						<li class="cart"><a href="#"><span> </span>CART</a></li>
 					</ul>
-					<div class="sign-up-right">
-						<a href="http://127.0.0.1:8080/ShopSite/register.jsp">SIGNUP</a>
-					</div>
 				</div>
 				<div class="clearfix"></div>
 			</div>

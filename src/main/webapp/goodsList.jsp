@@ -11,15 +11,18 @@
 <script src="resources/js/table.js" type="text/javascript"></script>
 <link href="resources/css/table.css" rel="stylesheet" type="text/css"
 	media="all" />
-<title>AddressList</title>
+<title>GoodsList</title>
 <script type="text/javascript">
-	$(document).ready(
+	$(document)
+			.ready(
 					function() {
 						var photo = "${photoURL}";
 						if (photo != null && photo != "") {
 							$("#headPhoto").attr('src', photo);
 						} else {
-							$("#headPhoto").attr('src',"http://127.0.0.1:8080/ShopSite/resources/images/avatar.png");
+							$("#headPhoto")
+									.attr('src',
+											"http://127.0.0.1:8080/ShopSite/resources/images/avatar.png");
 						}
 
 					})
@@ -33,34 +36,42 @@
 		</h1>
 		<table class="altrowstable" id="alternatecolor">
 			<tr>
-				<th>alid</th>
-				<th>address</th>
-				<th>aname</th>
-				<th>aphone</th>
+				<th>gid</th>
+				<th>gurl</th>
+				<th>gtype1</th>
+				<th>t2id</th>
+				<th>gname</th>
+				<th>gprice</th>
+				<th>gnumber</th>
+				<th>gcreate</th>
 			</tr>
-			<c:forEach var="addresslist" items="${addresslists}">
+			<c:forEach var="goods" items="${goodslist}">
 				<tr>
 
-					<td><c:out value="${addresslist.alid}" /></td>
-					<td><c:out value="${addresslist.address}" /></td>
-					<td><c:out value="${addresslist.aname}" /></td>
-					<td><c:out value="${addresslist.aphone}" /></td>
+					<td><c:out value="${goods.gid}" /></td>
+					<td><img src="http://127.0.0.1:8080/ShopSite/${goods.gurl}" /></td>
+					<td><c:out value="${goods.gtype1}" /></td>
+					<td><c:out value="${goods.t2id}" /></td>
+					<td><c:out value="${goods.gname}" /></td>
+					<td><c:out value="${goods.gprice}" /></td>
+					<td><c:out value="${goods.gnumber}" /></td>
+					<td><c:out value="${goods.gcreate}" /></td>
 					<td><a
-						href="http://127.0.0.1:8080/ShopSite/AddressList/AddressModify?alid=${addresslist.alid}&cid=${customer_id}&pageNo=${page.topPageNo}">编辑</a></td>
+						href="http://127.0.0.1:8080/ShopSite/GoodsList/GoodsModify?gid=${goods.gid}&pageNo=${page.topPageNo}">编辑</a></td>
 
 					<td><a
-						href="http://127.0.0.1:8080/ShopSite/AddressList/AddressDelete?alid=${addresslist.alid}&cid=${customer_id}&pageNo=${page.topPageNo}">删除</a></td>
+						href="http://127.0.0.1:8080/ShopSite/GoodsList/GoodsDelete?gid=${goods.gid}&pageNo=${page.topPageNo}">下架</a></td>
 				</tr>
 			</c:forEach>
 			<tr>
 				<td colspan="6" align="center" bgcolor="#5BA8DE">共${page.totalRecords}条记录
 					共${page.totalPages}页 当前第${page.pageNo}页<br> <a
-					href="http://127.0.0.1:8080/ShopSite/AddressList?pageNo=${page.topPageNo}&cid=${customer_id}"><input
+					href="http://127.0.0.1:8080/ShopSite/GoodsList?pageNo=${page.topPageNo}"><input
 						type="button" name="fristPage" value="首页" /></a> <c:choose>
 						<c:when test="${page.pageNo!=1}">
 
 							<a
-								href="http://127.0.0.1:8080/ShopSite/AddressList?pageNo=${page.previousPageNo}&cid=${customer_id}"><input
+								href="http://127.0.0.1:8080/ShopSite/GoodsList?pageNo=${page.previousPageNo}"><input
 								type="button" name="previousPage" value="上一页" /></a>
 
 						</c:when>
@@ -73,7 +84,7 @@
 					</c:choose> <c:choose>
 						<c:when test="${page.pageNo != page.totalPages}">
 							<a
-								href="http://127.0.0.1:8080/ShopSite/AddressList?pageNo=${page.nextPageNo}&cid=${customer_id}"><input
+								href="http://127.0.0.1:8080/ShopSite/GoodsList?pageNo=${page.nextPageNo}"><input
 								type="button" name="nextPage" value="下一页" /></a>
 						</c:when>
 						<c:otherwise>
@@ -83,11 +94,11 @@
 
 						</c:otherwise>
 					</c:choose> <a
-					href="http://127.0.0.1:8080/ShopSite/AddressList?pageNo=${page.bottomPageNo}&cid=${customer_id}"><input
+					href="http://127.0.0.1:8080/ShopSite/GoodsList?pageNo=${page.bottomPageNo}"><input
 						type="button" name="lastPage" value="尾页" /></a>
 				</td>
 				<td><a
-					href="http://127.0.0.1:8080/ShopSite/AddressList/AddressAdd?cid=${customer_id}&pageNo=${page.topPageNo}"">添加</a></td>
+					href="http://127.0.0.1:8080/ShopSite/GoodsList/GoodsAdd?pageNo=${page.topPageNo}">商品申请上架</a></td>
 				<td><a href="http://127.0.0.1:8080/ShopSite/home.jsp">返回</a></td>
 			</tr>
 		</table>

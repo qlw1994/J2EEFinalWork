@@ -89,12 +89,12 @@ table.altrowstable td {
 			<tr>
 				<td colspan="6" align="center" bgcolor="#5BA8DE">共${page.totalRecords}条记录
 					共${page.totalPages}页 当前第${page.pageNo}页<br> <a
-					href="http://127.0.0.1:8080/ShopSite/List/CustomerDelete?pageNo=${page.topPageNo}"><input
+					href="http://127.0.0.1:8080/ShopSite/HeadCheck?pageNo=${page.topPageNo}"><input
 						type="button" name="fristPage" value="首页" /></a> <c:choose>
 						<c:when test="${page.pageNo!=1}">
 
 							<a
-								href="http://127.0.0.1:8080/ShopSite/List/Customers?pageNo=${page.previousPageNo}"><input
+								href="http://127.0.0.1:8080/ShopSite/HeadCheck?pageNo=${page.previousPageNo}"><input
 								type="button" name="previousPage" value="上一页" /></a>
 
 						</c:when>
@@ -107,7 +107,7 @@ table.altrowstable td {
 					</c:choose> <c:choose>
 						<c:when test="${page.pageNo != page.totalPages}">
 							<a
-								href="http://127.0.0.1:8080/ShopSite/List/Customers?pageNo=${page.nextPageNo }"><input
+								href="http://127.0.0.1:8080/ShopSite/HeadCheck?pageNo=${page.nextPageNo }"><input
 								type="button" name="nextPage" value="下一页" /></a>
 						</c:when>
 						<c:otherwise>
@@ -117,7 +117,7 @@ table.altrowstable td {
 
 						</c:otherwise>
 					</c:choose> <a
-					href="http://127.0.0.1:8080/ShopSite/List/CustomerDelete?pageNo=${page.bottomPageNo }"><input
+					href="http://127.0.0.1:8080/ShopSite/HeadCheck?pageNo=${page.bottomPageNo }"><input
 						type="button" name="lastPage" value="尾页" /></a>
 				</td>
 				<td><a href="http://127.0.0.1:8080/ShopSite/syshome.jsp">返回</a></td>

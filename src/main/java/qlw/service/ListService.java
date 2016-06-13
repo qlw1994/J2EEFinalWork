@@ -8,11 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import qlw.dao.BusinessDao;
 import qlw.dao.CustomerDao;
 import qlw.dao.HeadcheckDao;
 import qlw.dao.MessagesDao;
 import qlw.dao.SystemuserDao;
 import qlw.interfaces.ServiceInterface;
+import qlw.model.Business;
 import qlw.model.Customer;
 import qlw.model.Headcheck;
 import qlw.model.Messages;
@@ -30,6 +32,8 @@ public class ListService implements ServiceInterface {
 	private MessagesDao messagesDao;
 	@Autowired
 	private SystemuserDao systemuserDao;
+	@Autowired
+	private BusinessDao businessDao;
 
 	/**
 	 * 分页查询queryForPage_Customers
@@ -90,7 +94,13 @@ public class ListService implements ServiceInterface {
 	// 管理员——删除用户
 	@SuppressWarnings("unchecked")
 	public void customerDelete(String id) {
-		customerDao.delete(id);
+		Customer cus = customerDao.findById(id);
+		cus.setCremove(new Date());
+		customerDao.save(cus);
+
+		Business bus = businessDao.findById(id);
+		bus.setBremove(new Date());
+		businessDao.save(bus);
 	}
 
 	// 管理员——修改用户
