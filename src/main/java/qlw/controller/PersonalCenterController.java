@@ -38,7 +38,7 @@ public class PersonalCenterController {
 		}
 		if (file != null) {
 			String path = request.getSession().getServletContext().getRealPath("resources/upload");
-			System.out.println(path);
+			System.out.println("path="+path);
 			String fileName = new Date().getTime() + id + ".jpg";
 			System.out.println(fileName);
 			File targetFile = new File(path, fileName);
@@ -51,7 +51,7 @@ public class PersonalCenterController {
 				e.printStackTrace();
 			}
 			String url = (request.getContextPath() + "/resources/upload/" + fileName).replace("/ShopSite/", "");
-			System.out.println(url);
+			System.out.println("url="+url);
 			personalCenterService.personalPhotoSave(id, url);
 			// mmap.addAttribute("photoURL",url);
 		}

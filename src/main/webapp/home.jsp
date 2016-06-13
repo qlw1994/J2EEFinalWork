@@ -24,7 +24,7 @@
 <script src="resources/js/jquery.easydropdown.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
-		var photo = "${photoURL}"
+		var photo = "${photoURL}";
 		if (photo != null && photo != "") {
 			$("#headPhoto").attr('src', photo);
 		} else {

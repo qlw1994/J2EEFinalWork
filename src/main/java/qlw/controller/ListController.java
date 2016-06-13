@@ -67,7 +67,9 @@ public class ListController {
 	public String headNotPass(HttpServletRequest request, HttpServletResponse response) {
 		String hcid = request.getParameter("hcid");
 		String cid = request.getParameter("cid");
-		listService.headCheckNotPass(hcid, cid);
+		String path = request.getSession().getServletContext().getRealPath("/").replace("\\List\\", "\\");
+		System.out.println("HeadNotPass path= "+path);
+		listService.headCheckNotPass(hcid, cid,path);
 		try {
 			String pageNo = request.getParameter("pageNo");
 			if (pageNo == null) {

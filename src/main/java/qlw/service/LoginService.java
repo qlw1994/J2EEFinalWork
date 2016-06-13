@@ -53,7 +53,13 @@ public class LoginService implements ServiceInterface {
 
 	}
 
+	// 获得当前登录的管理员
 	public Systemuser getCurrentSu(String id) {
 		return systemuserDao.findById(id);
+	}
+
+	// 获得当前登录的用户
+	public Customer getCurrentCus(String id) {
+		return customerDao.findById(id);
 	}
 }

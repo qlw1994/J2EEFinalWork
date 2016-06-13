@@ -13,7 +13,13 @@
 <!--//theme-style-->
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1">
+<!--//fonts-->
+<script src="resources/js/jquery.min.js"></script>
+
+<script src="resources/js/jquery.easydropdown.js"></script>
+<!--script-->
 <script type="application/x-javascript">
+	
 	
 	
 	
@@ -21,27 +27,28 @@
 
 
 
+
 </script>
 <script type="text/javascript">
-	$(document).ready(function() {
-		var photo = "${photoURL}"
-		if (photo != null && photo != "") {
-			$("#headPhoto").attr('src', photo);
-		} else {
-			$("#headPhoto").attr('src', "http://127.0.0.1:8080/ShopSite/resources/images/avatar.png");
-		}
+	$(document)
+			.ready(
+					function() {
+						var photo = "${photoURL}"
+						if (photo != null && photo != "") {
+							$("#headPhoto").attr('src', photo);
+						} else {
+							$("#headPhoto")
+									.attr('src',
+											"http://127.0.0.1:8080/ShopSite/resources/images/avatar.png");
+						}
 
-	})
+					})
 </script>
 <!--fonts-->
 <link
 	href='http://fonts.useso.com/css?family=Open+Sans:400,300,600,700,800'
 	rel='stylesheet' type='text/css'>
-<!--//fonts-->
-<script src="resources/js/jquery.min.js"></script>
 
-<script src="resources/js/jquery.easydropdown.js"></script>
-<!--script-->
 </head>
 <body>
 	<!--header-->

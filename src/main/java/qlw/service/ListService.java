@@ -1,5 +1,6 @@
 package qlw.service;
 
+import java.io.File;
 import java.util.Date;
 import java.util.List;
 
@@ -70,15 +71,19 @@ public class ListService implements ServiceInterface {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public Page queryForPage_HeadPhotos(int currentPage, int pageSize) {
 		Page page = new Page();
-		String hql = "from Headcheck where hcstate = ? ";
+		String hql = "from Headcheck";
 		// 总记录数
-		int allRow = headcheckDao.getAllRowCount(hql, new String['0']);
-		System.out.println("_________________" + allRow);
+		int allRow = headcheckDao.getAllRowCount(hql, null);
+
 		// 当前页开始记录
 		int offset = page.countOffset(currentPage, pageSize);
 		// 分页查询结果集
-		List<Headcheck> list = headcheckDao.findByPage(offset, pageSize);
-
+		List<Headcheck> list = headcheckDao.findByPageNotCheck(offset, pageSize);
+		for (Headcheck headcheck : list) {
+			if (headcheck.getHcstate().equals("1")) {
+				list.remove(headcheck);
+			}
+		}
 		page.setPageNo(currentPage);
 		page.setPageSize(pageSize);
 		page.setTotalRecords(allRow);
@@ -127,7 +132,7 @@ public class ListService implements ServiceInterface {
 	}
 
 	// 管理员——图片审核不通过
-	public void headCheckNotPass(String hcid, String cid) {
+	public void headCheckNotPass(String hcid, String cid, String path) {
 
 		Headcheck headcheck = headcheckDao.findById(Integer.parseInt(hcid));
 		// 发送消息给用户
@@ -143,10 +148,18 @@ public class ListService implements ServiceInterface {
 		int toread = customer.getCtoread() + 1;
 		customer.setCtoread(toread);
 		customerDao.save(customer);
-		headcheckDao.delete(Integer.parseInt(hcid));
+
 		// 管理员需审核的头像减一
 		Systemuser systemuser = systemuserDao.findById("su");
 		int sutoheadcheck = systemuser.getSutoheadcheck() - 1;
 		systemuser.setSutoheadcheck(sutoheadcheck);
+		// 文件删除
+		String fileName = headcheck.getHcurl().replace("/", "\\");
+		String realPath = path + fileName;
+		System.out.println("realPath=" + realPath);
+		File targetFile = new File(realPath);
+		targetFile.delete();
+		// 数据库删除
+		headcheckDao.delete(Integer.parseInt(hcid));
 	}
 }

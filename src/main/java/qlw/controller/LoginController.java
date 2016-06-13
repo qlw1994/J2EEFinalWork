@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import qlw.model.Customer;
 import qlw.model.Systemuser;
 import qlw.service.LoginService;
 
@@ -65,11 +66,15 @@ public class LoginController {
 		// context = new ClassPathXmlApplicationContext(
 		// "/WEB-INF/configs/spring/applicationContext.xml");
 		String res = loginService.loginCheck(id, pwd);
+		Customer customer = loginService.getCurrentCus(id);
 		ModelAndView modelAndView = new ModelAndView();
 		ModelMap mmap = new ModelMap();
 		if (res.equals("0")) {
 			modelAndView.setViewName("loginNotFound");
 		} else if (res.equals("1")) {
+			if (customer.getCurl() != null) {
+				request.getSession().setAttribute("photoURL", "http://127.0.0.1:8080/ShopSite/" + customer.getCurl());
+			}
 			request.getSession().setAttribute("customer_id", id);
 			request.getSession().setAttribute("customer_pwd", pwd);
 			// mmap.addAttribute("customer_id", id);
