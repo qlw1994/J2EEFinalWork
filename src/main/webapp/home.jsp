@@ -16,7 +16,21 @@
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
+
+
+
+
+
+
 
 
 
@@ -30,13 +44,17 @@
 <script src="resources/js/jquery.easydropdown.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
+		var id = "${customer_id}";
+
 		var photo = "${photoURL}";
 		if (photo != null && photo != "") {
 			$("#headPhoto").attr('src', photo);
 		} else {
 			$("#headPhoto").attr('src', "resources/images/avatar.png");
 		}
-
+		if (id != null && id != "") {
+			$("#islogin").hide();
+		}
 	})
 </script>
 <!--script-->
@@ -108,11 +126,17 @@
 						<li><a
 							href="http://127.0.0.1:8080/ShopSite/personalCenter.jsp"><span>
 							</span>YOUR ACCOUNT</a></li>
-						<li class="login"><a
-							href="http://127.0.0.1:8080/ShopSite/login.jsp"><span>
-							</span>LOGIN</a></li>
-						<li class="sign-up-right"><a
-							href="http://127.0.0.1:8080/ShopSite/register.jsp">SIGNUP</a></li>
+						<li>
+							<div id="islogin">
+								<ul class="men-grid">
+									<li class="login"><a
+										href="http://127.0.0.1:8080/ShopSite/login.jsp"><span>
+										</span>LOGIN</a></li>
+									<li class="sign-up-right"><a
+										href="http://127.0.0.1:8080/ShopSite/register.jsp">SIGNUP</a></li>
+								</ul>
+							</div>
+						</li>
 						<li class="cart"><a href="#"><span> </span>CART</a></li>
 					</ul>
 				</div>

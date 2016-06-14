@@ -10,19 +10,19 @@
 	type="text/javascript"></script>
 <script src="http://127.0.0.1:8080/ShopSite/resources/js/table.js"
 	type="text/javascript"></script>
-<link href="http://127.0.0.1:8080/ShopSite/resources/css/goodsform.css"
+<link href="http://127.0.0.1:8080/ShopSite/resources/css/addressform.css"
 	rel="stylesheet" type="text/css" media="all" />
 <title>GoodsAdd</title>
 </head>
 <body>
 	<center>
-		<form action="goodsAddSave" method="post" class="basic-grey"
+		<form action="GoodsAddSave" method="post" class="basic-grey"
 			ENCTYPE="multipart/form-data">
 			<h1>
 				GoodsAdd <span>Please fill all the texts in the fields.</span>
 			</h1>
 			<input id="pageNo" type="hidden" name="pageNo" value="${pageNo}" />
-			<label> <span>图片: </span> <input type="file" id="photo"
+			<label> <span>图片: </span> <input type="file" id="photo" class="button"
 				name="photo">
 			</label> <label> <span>大类:</span> <input id="gtype1" type="text"
 				name="gtype1" placeholder="大类" />

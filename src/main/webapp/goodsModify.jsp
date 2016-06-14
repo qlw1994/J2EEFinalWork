@@ -10,34 +10,34 @@
 	type="text/javascript"></script>
 <script src="http://127.0.0.1:8080/ShopSite/resources/js/table.js"
 	type="text/javascript"></script>
-<link href="http://127.0.0.1:8080/ShopSite/resources/css/goodsform.css"
+<link href="http://127.0.0.1:8080/ShopSite/resources/css/addressform.css"
 	rel="stylesheet" type="text/css" media="all" />
 <title>GoodsModify</title>
 </head>
 <body>
 	<center>
-		<form action="goodsModifySave" method="post" class="basic-grey">
+		<form action="GoodsModifySave" method="post" class="basic-grey">
 			<h1>
-				GoodsModify 当前编号 ID: ${goodslist.gid}<span>Please fill all
+				GoodsModify 当前编号 ID: ${goods.gid}<span>Please fill all
 					the texts in the fields.</span>
 			</h1>
 			<input id="pageNo" type="hidden" name="pageNo" value="${pageNo}" />
-			<input id="gid" type="hidden" name="gid" value="${goodslist.gid}" />
+			<input id="gid" type="hidden" name="gid" value="${goods.gid}" />
 			<label> <span>图片: </span> <img
-				src="http://127.0.0.1:8080/ShopSite/${goodslist.gurl}" width=32px
-				height=30px>
+				src="http://127.0.0.1:8080/ShopSite/${goods.gurl}" width=60px
+				height=62px>
 			</label> <label> <span>大类:</span> <input id="gtype1" type="text"
-				name="gtype1" value="${goodslist.gtype1}" disabled="disabled" />
+				name="gtype1" value="${goods.gtype1}" disabled="disabled" />
 			</label> <label> <span>中类 :</span> <input id="t2id" type="text"
-				name="t2id" value="${goodslist.t2id}" disabled="disabled" />
+				name="t2id" value="${goods.t2id}" disabled="disabled" />
 			</label> <label> <span>名字 :</span> <input id="gname" type="text"
-				name="gname" value="${goodslist.gname}" disabled="disabled" />
+				name="gname" value="${goods.gname}" disabled="disabled" />
 			</label> <label> <span>价格:</span> <input id="gprice" type="text"
-				name="gprice" value="${goodslist.gprice}" />
+				name="gprice" value="${goods.gprice}" />
 			</label> <label> <span>数量 :</span> <input id="gnumber" type="text"
-				name="gnumber" value="${goodslist.gnumber}" />
+				name="gnumber" value="${goods.gnumber}" />
 			</label><label> <span>上架时间 :</span> <input id="gcreate" type="text"
-				name="gcreate" value="${goodslist.gcreate}" disabled="disabled" />
+				name="gcreate" value="${goods.gcreate}" disabled="disabled" />
 			</label> <label><span>&nbsp;</span> <input type="submit"
 				class="button" value="保存" /> </label>
 		</form>

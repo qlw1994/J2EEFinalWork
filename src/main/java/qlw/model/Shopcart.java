@@ -1,8 +1,14 @@
 package qlw.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -14,6 +20,17 @@ public class Shopcart {
 	private int gid;
 	private String cid;
 	private Double scmoney;
+
+	private Set<Shopcartinfo> Shopcartinfos = new HashSet<Shopcartinfo>();
+
+	@OneToMany(mappedBy = "shopcart", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	public Set<Shopcartinfo> getShopcartinfos() {
+		return Shopcartinfos;
+	}
+
+	public void setShopcartinfos(Set<Shopcartinfo> shopcartinfos) {
+		Shopcartinfos = shopcartinfos;
+	}
 
 	@Id
 	@GeneratedValue(generator = "identity")

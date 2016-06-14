@@ -1,10 +1,15 @@
 package qlw.model;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -17,6 +22,15 @@ public class Type2 {
 	private String t2name;
 	private Date t2create;
 	private Date t2remove;
+	private Set<Goods> goodslist=new HashSet<Goods>();
+	@OneToMany(mappedBy = "type2", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	public Set<Goods> getGoodslist() {
+		return goodslist;
+	}
+
+	public void setGoodslist(Set<Goods> goodslist) {
+		this.goodslist = goodslist;
+	}
 
 	@Id
 	@GeneratedValue(generator = "identity")

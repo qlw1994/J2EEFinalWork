@@ -2,9 +2,12 @@ package qlw.model;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -22,6 +25,32 @@ public class Goods {
 	private String gurl;
 	private Date gcreate;
 	private Date gremove;
+
+	private Type2 type2;
+
+	@ManyToOne(cascade = CascadeType.ALL, optional = false)
+
+	@JoinColumn(name = "t2id", insertable = false, updatable = false)
+	public Type2 getType2() {
+		return type2;
+	}
+
+	public void setType2(Type2 type2) {
+		this.type2 = type2;
+	}
+
+	private Business business;
+
+	@ManyToOne(cascade = CascadeType.ALL, optional = false)
+
+	@JoinColumn(name = "bid", insertable = false, updatable = false)
+	public Business getBusiness() {
+		return business;
+	}
+
+	public void setBusiness(Business business) {
+		this.business = business;
+	}
 
 	@Id
 	@GeneratedValue(generator = "identity")

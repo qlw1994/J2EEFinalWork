@@ -5,19 +5,15 @@ import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.criteria.CriteriaBuilder.In;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import qlw.model.Addresslist;
-import qlw.model.Customer;
 import qlw.model.Goods;
 import qlw.model.Page;
 import qlw.service.GoodsListForUserService;
@@ -100,7 +96,7 @@ public class GoodsListForUserController {
 			pageNo = "1";
 		}
 		request.setAttribute("pageNo", pageNo);
-		return "GoodsAdd";
+		return "goodsAdd";
 	}
 
 	// 商品申请上架提交
@@ -113,17 +109,6 @@ public class GoodsListForUserController {
 		String gtype1 = request.getParameter("gtype1");
 		String gnumber = request.getParameter("gnumber");
 		String gprice = request.getParameter("gprice");
-		try {
-			bid = new String(bid.getBytes("iso8859-1"), "UTF-8");
-			t2id = new String(t2id.getBytes("iso8859-1"), "UTF-8");
-			gname = new String(gname.getBytes("iso8859-1"), "UTF-8");
-			gtype1 = new String(gtype1.getBytes("iso8859-1"), "UTF-8");
-			gnumber = new String(gnumber.getBytes("iso8859-1"), "UTF-8");
-			gprice = new String(gprice.getBytes("iso8859-1"), "UTF-8");
-		} catch (UnsupportedEncodingException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} // 解决乱码
 		if (file != null) {
 			String path = request.getSession().getServletContext().getRealPath("resources/upload")
 					.replace("\\GoodsList", "");
