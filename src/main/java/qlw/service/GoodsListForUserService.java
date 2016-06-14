@@ -53,7 +53,7 @@ public class GoodsListForUserService implements ServiceInterface {
 
 	// ModifySave
 	public void goodsModifySave(Goods goods) {
-		goodsDao.save(goods);
+		goodsDao.update(goods);
 	}
 
 	// 下架
@@ -66,5 +66,11 @@ public class GoodsListForUserService implements ServiceInterface {
 	public void goodsAddSave(Goods goods) {
 		// 创建时间设为审核通过的时间
 		goodsDao.save(goods);
+	}
+
+	// 加载所有商品
+	public List<Goods> loadAllGoods() {
+		List<Goods> goodslist = goodsDao.findByHQL("from Goods", null);
+		return goodslist;
 	}
 }

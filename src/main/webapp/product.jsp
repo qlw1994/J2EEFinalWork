@@ -5,20 +5,22 @@
 <html>
 <head>
 <title>Product</title>
-<link href="resources/css/bootstrap.css" rel="stylesheet"
+<link href="http://127.0.0.1:8080/ShopSite/resources/css/bootstrap.css" rel="stylesheet"
 	type="text/css" media="all" />
 <!--theme-style-->
-<link href="resources/css/mainstyle.css" rel="stylesheet"
+<link href="http://127.0.0.1:8080/ShopSite/resources/css/mainstyle.css" rel="stylesheet"
 	type="text/css" media="all" />
 <!--//theme-style-->
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1">
 <!--//fonts-->
-<script src="resources/js/jquery.min.js"></script>
+<script src="http://127.0.0.1:8080/ShopSite/resources/js/jquery.min.js"></script>
 
-<script src="resources/js/jquery.easydropdown.js"></script>
+<script src="http://127.0.0.1:8080/ShopSite/resources/js/jquery.easydropdown.js"></script>
 <!--script-->
 <script type="application/x-javascript">
+	
+	
 	
 	
 	
@@ -28,21 +30,45 @@
 
 
 
+
+
 </script>
 <script type="text/javascript">
-	$(document)
-			.ready(
+	$(document).ready(
 					function() {
 						var photo = "${photoURL}"
 						if (photo != null && photo != "") {
 							$("#headPhoto").attr('src', photo);
 						} else {
-							$("#headPhoto")
-									.attr('src',
-											"http://127.0.0.1:8080/ShopSite/resources/images/avatar.png");
-						}
-
+							$("#headPhoto").attr('src',"http://127.0.0.1:8080/ShopSite/resources/images/avatar.png");
+						}	
+						  $.ajax({  
+						        type: "GET",  
+						        url: "http://127.0.0.1:8080/ShopSite/LoginInit",     
+						        //json格式接收数据  
+						        dataType: "json",  
+						        success: function (jsonStr) {  
+						        	 
+						            if(jsonStr!=null&&jsonStr!=""){
+						            //使用jquery解析json中的数据  
+						           
+						              //css无法生效
+						             $.each(jsonStr, function (n, value) {  
+						            	 var ruleListTemp = "<div class=\"product-grid\"><div class=\"content_box\"><a href=\"http://127.0.0.1:8080/ShopSite/Single?gid=";  
+						                ruleListTemp += (value.gid+"\"><div class=\"left-grid-view grid-view-left\"><img src=\"http://127.0.0.1:8080/ShopSite/");  
+						              	ruleListTemp += (value.gurl+"\" class=\"img-responsive watch-right\" alt=\"\" /><div class=\"mask\"><div class=\"info\">Quick View</div></div>");
+						                ruleListTemp += ("</a></div><h4>"+value.gname+"</h4></div></div>");   
+						                $("#productList").append(ruleListTemp);  
+						            });  
+									   
+						            }
+						        } ,
+						        error:function () { 
+						        	alert("请求失败");
+						        }
+						 });  					
 					})
+		
 </script>
 <!--fonts-->
 <link
@@ -108,16 +134,28 @@
 				</div>
 				<div class="header-bottom-right">
 					<ul class="men-grid">
-						<li><a href="http://127.0.0.1:8080/ShopSite/login.jsp"><span>
+						<li><a href="#"><span> </span>New Messages【${ctoread}】</a></li>
+						<li>
+						<li><a href="http://127.0.0.1:8080/ShopSite/GoodsList"><span>
+							</span>Upload Goods</a></li>
+						<li><a href="http://127.0.0.1:8080/ShopSite/AddressList"><span>
+							</span>AddressList</a></li>
+						<li><a
+							href="http://127.0.0.1:8080/ShopSite/personalCenter.jsp"><span>
 							</span>YOUR ACCOUNT</a></li>
-						<li class="login"><a
-							href="http://127.0.0.1:8080/ShopSite/login.jsp"><span>
-							</span>LOGIN</a>|</li>
-						<li class="cart"><a href="#"><span> </span>CART</a></li>
+						<li>
+							<div id="islogin">
+								<ul class="men-grid">
+									<li class="login"><a
+										href="http://127.0.0.1:8080/ShopSite/login.jsp"><span>
+										</span>LOGIN</a></li>
+									<li class="login"><a
+										href="http://127.0.0.1:8080/ShopSite/register.jsp"><span></span>SIGNUP</a></li>
+								</ul>
+							</div>
+						</li>
+						<li class="cart"><a href="http://127.0.0.1:8080/ShopSite/ShopcartList"><span> </span>CART</a></li>
 					</ul>
-					<div class="sign-up-right">
-						<a href="http://127.0.0.1:8080/ShopSite/register.jsp">SIGNUP</a>
-					</div>
 				</div>
 				<div class="clearfix"></div>
 			</div>
@@ -145,171 +183,11 @@
 				</div>
 			</div>
 			<!-- grids_of_4 -->
-			<div class="grid-product">
-				<div class="  product-grid">
-					<div class="content_box">
-						<a href="http://127.0.0.1:8080/ShopSite/single.jsp">
-							<div class="left-grid-view grid-view-left">
-								<img src="resources/images/pic13.jpg"
-									class="img-responsive watch-right" alt="" />
-								<div class="mask">
-									<div class="info">Quick View</div>
-								</div>
-						</a>
-					</div>
-					<h4>
-						<a href="#"> Duis autem</a>
-					</h4>
-					<p>It is a long established fact that a reader</p>
-					Rs. 499
-				</div>
-			</div>
-			<div class="  product-grid">
-				<div class="content_box">
-					<a href="http://127.0.0.1:8080/ShopSite/single.jsp">
-						<div class="left-grid-view grid-view-left">
-							<img src="resources/images/pic2.jpg"
-								class="img-responsive watch-right" alt="" />
-							<div class="mask">
-								<div class="info">Quick View</div>
-							</div>
-					</a>
-				</div>
-				<h4>
-					<a href="#"> Duis autem</a>
-				</h4>
-				<p>It is a long established fact that a reader</p>
-				Rs. 499
-			</div>
-		</div>
-		<div class="  product-grid">
-			<div class="content_box">
-				<a href="http://127.0.0.1:8080/ShopSite/single.jsp">
-					<div class="left-grid-view grid-view-left">
-						<img src="resources/images/pic3.jpg"
-							class="img-responsive watch-right" alt="" />
-						<div class="mask">
-							<div class="info">Quick View</div>
-						</div>
-				</a>
-			</div>
-			<h4>
-				<a href="#"> Duis autem</a>
-			</h4>
-			<p>It is a long established fact that a reader</p>
-			Rs. 499
-		</div>
-	</div>
-	<div class="  product-grid">
-		<div class="content_box">
-			<a href="http://127.0.0.1:8080/ShopSite/single.jsp">
-				<div class="left-grid-view grid-view-left">
-					<img src="resources/images/pic4.jpg"
-						class="img-responsive watch-right" alt="" />
-					<div class="mask">
-						<div class="info">Quick View</div>
-					</div>
-			</a>
-		</div>
-		<h4>
-			<a href="#"> Duis autem</a>
-		</h4>
-		<p>It is a long established fact that a reader</p>
-		Rs. 499
-	</div>
-	</div>
-	<div class="  product-grid">
-		<div class="content_box">
-			<a href="http://127.0.0.1:8080/ShopSite/single.jsp">
-				<div class="left-grid-view grid-view-left">
-					<img src="resources/images/pic6.jpg"
-						class="img-responsive watch-right" alt="" />
-					<div class="mask">
-						<div class="info">Quick View</div>
-					</div>
-			</a>
-		</div>
-		<h4>
-			<a href="#"> Duis autem</a>
-		</h4>
-		<p>It is a long established fact that a reader</p>
-		Rs. 499
-	</div>
-	</div>
-	<div class="  product-grid">
-		<div class="content_box">
-			<a href="http://127.0.0.1:8080/ShopSite/single.jsp">
-				<div class="left-grid-view grid-view-left">
-					<img src="resources/images/pic7.jpg"
-						class="img-responsive watch-right" alt="" />
-					<div class="mask">
-						<div class="info">Quick View</div>
-					</div>
-			</a>
-		</div>
-		<h4>
-			<a href="#"> Duis autem</a>
-		</h4>
-		<p>It is a long established fact that a reader</p>
-		Rs. 499
-	</div>
-	</div>
-	<div class="  product-grid">
-		<div class="content_box">
-			<a href="http://127.0.0.1:8080/ShopSite/single.jsp">
-				<div class="left-grid-view grid-view-left">
-					<img src="resources/images/pic8.jpg"
-						class="img-responsive watch-right" alt="" />
-					<div class="mask">
-						<div class="info">Quick View</div>
-					</div>
-			</a>
-		</div>
-		<h4>
-			<a href="#"> Duis autem</a>
-		</h4>
-		<p>It is a long established fact that a reader</p>
-		Rs. 499
-	</div>
-	</div>
-	<div class="  product-grid">
-		<div class="content_box">
-			<a href="http://127.0.0.1:8080/ShopSite/single.jsp">
-				<div class="left-grid-view grid-view-left">
-					<img src="resources/images/pic11.jpg"
-						class="img-responsive watch-right" alt="" />
-					<div class="mask">
-						<div class="info">Quick View</div>
-					</div>
-			</a>
-		</div>
-		<h4>
-			<a href="#"> Duis autem</a>
-		</h4>
-		<p>It is a long established fact that a reader</p>
-		Rs. 499
-	</div>
-	</div>
-	<div class=" product-grid">
-		<div class="content_box">
-			<a href="http://127.0.0.1:8080/ShopSite/single.jsp">
-				<div class="left-grid-view grid-view-left">
-					<img src="resources/images/pic12.jpg"
-						class="img-responsive watch-right" alt="" />
-					<div class="mask">
-						<div class="info">Quick View</div>
-					</div>
-			</a>
-		</div>
-		<h4>
-			<a href="#"> Duis autem</a>
-		</h4>
-		<p>It is a long established fact that a reader</p>
-		Rs. 499
-	</div>
+			<div class="grid-product" id="productList">
+
+
 	</div>
 	<div class="clearfix"></div>
-	</div>
 	</div>
 	<div class="sub-cate">
 		<div class=" top-nav rsidebar span_1_of_left">

@@ -150,7 +150,9 @@ public class AddressListController {
 	@RequestMapping()
 	public String findAllAddress(HttpServletRequest request, HttpServletResponse response) {
 		String cid = (String) request.getSession().getAttribute("customer_id");
-
+		if (cid == null || cid.equals("")) {
+			return "login";
+		}
 		try {
 			String pageNo = request.getParameter("pageNo");
 			if (pageNo == null) {

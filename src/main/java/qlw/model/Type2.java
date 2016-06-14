@@ -23,7 +23,7 @@ public class Type2 {
 	private Date t2create;
 	private Date t2remove;
 	private Set<Goods> goodslist=new HashSet<Goods>();
-	@OneToMany(mappedBy = "type2", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "type2", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	public Set<Goods> getGoodslist() {
 		return goodslist;
 	}

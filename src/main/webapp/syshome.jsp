@@ -16,7 +16,7 @@
 			<a href="http://127.0.0.1:8080/ShopSite/List/HeadCheck">头像审核【${sutoheadcheck}】</a>
 		</h1>
 		<h1>
-			<a href="http://127.0.0.1:8080/ShopSite/List/GoodsCheck">商品审核【${sutogoodscheck}】</a>
+			<a href="#">商品审核【${sutogoodscheck}】</a>
 		</h1>
 	</center>
 </body>

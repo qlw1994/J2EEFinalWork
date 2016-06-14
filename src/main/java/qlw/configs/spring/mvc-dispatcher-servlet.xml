@@ -73,6 +73,8 @@
 		<list> JSON View <bean class="org.springframework.web.servlet.view.json.MappingJackson2JsonView"> 
 		</bean> </list> </property> <property name="ignoreAcceptHeader" value="true" 
 		/> </bean> -->
+
+
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="viewClass"
@@ -84,7 +86,7 @@
 	<!--静态文件的访问 -->
 	<mvc:resources mapping="/images/**" location="/resources/images/"
 		cache-period="31556926" />
-<mvc:resources mapping="/upload/**" location="/resources/upload/"
+	<mvc:resources mapping="/upload/**" location="/resources/upload/"
 		cache-period="31556926" />
 	<mvc:resources mapping="/css/**" location="/resources/css/"
 		cache-period="31556926" />

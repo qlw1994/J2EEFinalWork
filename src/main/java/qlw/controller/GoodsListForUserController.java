@@ -27,6 +27,7 @@ public class GoodsListForUserController {
 	// 商品编辑跳转
 	@RequestMapping("/GoodsModify")
 	public String addressModify(HttpServletRequest request, HttpServletResponse response) {
+
 		String gid = request.getParameter("gid");
 		String pageNo = request.getParameter("pageNo");
 		if (pageNo == null) {
@@ -47,7 +48,7 @@ public class GoodsListForUserController {
 		String gnumber = request.getParameter("gnumber");
 		Goods goods = goodsListForUserService.getCurrentGoods(gid);
 		String bid = goods.getBid();
-		goods.setGprice(Integer.parseInt(gprice));
+		goods.setGprice(Double.valueOf(gprice));
 		goods.setGnumber(Integer.parseInt(gnumber));
 		goodsListForUserService.goodsModifySave(goods);
 		try {
@@ -156,6 +157,10 @@ public class GoodsListForUserController {
 	// 加载我的所有商品
 	@RequestMapping()
 	public String findAllMyGoods(HttpServletRequest request, HttpServletResponse response) {
+		String cid = (String) request.getSession().getAttribute("customer_id");
+		if (cid == null || cid.equals("")) {
+			return "login";
+		}
 		String bid = (String) request.getSession().getAttribute("customer_id");
 		try {
 			String pageNo = request.getParameter("pageNo");

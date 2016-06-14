@@ -13,27 +13,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1">
 <script type="application/x-javascript">
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
-
-
-
-
-
-
-
-
-
-
 </script>
 <!--fonts-->
 <link
@@ -45,16 +25,18 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		var id = "${customer_id}";
-
-		var photo = "${photoURL}";
-		if (photo != null && photo != "") {
-			$("#headPhoto").attr('src', photo);
-		} else {
-			$("#headPhoto").attr('src', "resources/images/avatar.png");
-		}
 		if (id != null && id != "") {
+			var photo = "${photoURL}";
+			if (photo != null && photo != "") {
+				$("#headPhoto").attr('src', photo);
+			} else {
+				$("#headPhoto").attr('src', "resources/images/avatar.png");
+			}
 			$("#islogin").hide();
+		} else {
+			$("#headPhoto").hide();
 		}
+
 	})
 </script>
 <!--script-->
@@ -119,6 +101,8 @@
 				</div>
 				<div class="header-bottom-right">
 					<ul class="men-grid">
+						<li><a href="http://127.0.0.1:8080/ShopSite/MessageList"><span> </span>New Messages${ctoread}</a></li>
+						<li>
 						<li><a href="http://127.0.0.1:8080/ShopSite/GoodsList"><span>
 							</span>Upload Goods</a></li>
 						<li><a href="http://127.0.0.1:8080/ShopSite/AddressList"><span>
@@ -132,12 +116,12 @@
 									<li class="login"><a
 										href="http://127.0.0.1:8080/ShopSite/login.jsp"><span>
 										</span>LOGIN</a></li>
-									<li class="sign-up-right"><a
-										href="http://127.0.0.1:8080/ShopSite/register.jsp">SIGNUP</a></li>
+									<li class="login"><a
+										href="http://127.0.0.1:8080/ShopSite/register.jsp"><span></span>SIGNUP</a></li>
 								</ul>
 							</div>
 						</li>
-						<li class="cart"><a href="#"><span> </span>CART</a></li>
+						<li class="cart"><a href="http://127.0.0.1:8080/ShopSite/ShopcartList"><span> </span>CART</a></li>
 					</ul>
 				</div>
 				<div class="clearfix"></div>

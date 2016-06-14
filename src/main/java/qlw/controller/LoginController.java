@@ -51,6 +51,7 @@ public class LoginController {
 		ModelAndView modelAndView = new ModelAndView();
 		ModelMap mmap = new ModelMap();
 		request.getSession().setAttribute("customer_id", request.getParameter("register_id"));
+		request.getSession().setAttribute("ctoread", '0');
 		// mmap.addAttribute("customer_id",
 		// request.getParameter("register_id"));
 		// mmap.addAttribute("customer_pwd",
@@ -75,6 +76,7 @@ public class LoginController {
 			if (customer.getCurl() != null) {
 				request.getSession().setAttribute("photoURL", "http://127.0.0.1:8080/ShopSite/" + customer.getCurl());
 			}
+			request.getSession().setAttribute("ctoread", customer.getCtoread());
 			request.getSession().setAttribute("customer_id", id);
 			request.getSession().setAttribute("customer_pwd", pwd);
 			// mmap.addAttribute("customer_id", id);

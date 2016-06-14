@@ -1,39 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>Single</title>
-<link href="resources/css/bootstrap.css" rel="stylesheet"
+<link href="http://127.0.0.1:8080/ShopSite/resources/css/bootstrap.css" rel="stylesheet"
 	type="text/css" media="all" />
 <!--theme-style-->
-<link href="resources/css/mainstyle.css" rel="stylesheet"
+<link href="http://127.0.0.1:8080/ShopSite/resources/css/mainstyle.css" rel="stylesheet"
 	type="text/css" media="all" />
-<link rel="stylesheet" href="resources/css/etalage.css" type="text/css"
+<link rel="stylesheet" href="http://127.0.0.1:8080/ShopSite/resources/css/etalage.css" type="text/css"
 	media="all" />
 <!--//theme-style-->
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1">
 <script type="application/x-javascript">
-	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
-
 </script>
 <!--fonts-->
 <link
 	href='http://fonts.useso.com/css?family=Open+Sans:400,300,600,700,800'
 	rel='stylesheet' type='text/css'>
 <!--//fonts-->
-<script src="resources/js/jquery.min.js"></script>
-<script src="resources/js/jquery.easydropdown.js"></script>
-<script src="resources/js/jquery.etalage.min.js"></script>
+<script src="http://127.0.0.1:8080/ShopSite/resources/js/jquery.min.js"></script>
+<script src="http://127.0.0.1:8080/ShopSite/resources/js/jquery.easydropdown.js"></script>
+<script src="http://127.0.0.1:8080/ShopSite/resources/js/jquery.etalage.min.js"></script>
 <script>
-	jQuery(document)
-			.ready(
-					function($) {
-
-						$('#etalage')
-								.etalage(
+	jQuery(document).ready(function($) {$('#etalage').etalage(
 										{
 											thumb_image_width : 300,
 											thumb_image_height : 400,
@@ -53,14 +47,44 @@
 </script>
 <script type="text/javascript">
 	$(document).ready(function() {
-		var photo = "${photoURL}"
-		if (photo != null && photo != "") {
-			$("#headPhoto").attr('src', photo);
+		var id = "${customer_id}";
+		if (id != null && id != "") {
+			var photo = "${photoURL}";
+			if (photo != null && photo != "") {
+				$("#headPhoto").attr('src', photo);
+			} else {
+				$("#headPhoto").attr('src', "resources/images/avatar.png");
+			}
+			$("#islogin").hide();
 		} else {
-			$("#headPhoto").attr('src', "http://127.0.0.1:8080/ShopSite/resources/images/avatar.png");
+			$("#headPhoto").hide();
 		}
 
 	})
+	function addToCart(){
+		$.ajax({
+			 type: "GET",  
+		        url: "http://127.0.0.1:8080/ShopSite/Single/AddToCart?gid=${goods.gid}",     
+		        //json格式接收数据  
+		        dataType: "text",  
+		        success: function (res) { 
+		        	if(res=="L"){
+		        		window.location.href="http://127.0.0.1:8080/ShopSite/login.jsp";
+		        	}
+		        	
+		        	else if(res!="0"){
+		        	$("#goodsnumber").html("库存量: "+res+"");
+		    		alert("添加成功 ,库存剩余"+res);
+		    		}
+		        	else{
+		        		alert("库存不足！");
+		        	}
+		        } ,
+		        error:function () { 
+		        	alert("请求失败");
+		        }
+		});
+	}
 </script>
 </head>
 <body>
@@ -76,7 +100,8 @@
 					</ul>
 					<ul class="support">
 						<li class="van"><a href="#"><label> </label></a></li>
-						<li><img id="headPhoto" src="" width=32px height=30px /><a href="#">${customer_id}</a></li>
+						<li><img id="headPhoto" src="" width=32px height=30px /><a
+							href="#">${customer_id}</a></li>
 					</ul>
 					<div class="clearfix"></div>
 				</div>
@@ -120,17 +145,28 @@
 				</div>
 				<div class="header-bottom-right">
 					<ul class="men-grid">
+						<li><a href="#"><span> </span>New Messages【${ctoread}】</a></li>
+						<li>
+						<li><a href="http://127.0.0.1:8080/ShopSite/GoodsList"><span>
+							</span>Upload Goods</a></li>
+						<li><a href="http://127.0.0.1:8080/ShopSite/AddressList"><span>
+							</span>AddressList</a></li>
 						<li><a
 							href="http://127.0.0.1:8080/ShopSite/personalCenter.jsp"><span>
 							</span>YOUR ACCOUNT</a></li>
-						<li class="login"><a
-							href="http://127.0.0.1:8080/ShopSite/login.jsp"><span>
-							</span>LOGIN</a>|</li>
-						<li class="cart"><a href="#"><span> </span>CART</a></li>
+						<li>
+							<div id="islogin">
+								<ul class="men-grid">
+									<li class="login"><a
+										href="http://127.0.0.1:8080/ShopSite/login.jsp"><span>
+										</span>LOGIN</a></li>
+									<li class="login"><a
+										href="http://127.0.0.1:8080/ShopSite/register.jsp"><span></span>SIGNUP</a></li>
+								</ul>
+							</div>
+						</li>
+						<li class="cart"><a href="http://127.0.0.1:8080/ShopSite/ShopcartList"><span> </span>CART</a></li>
 					</ul>
-					<div class="sign-up-right">
-						<a href="http://127.0.0.1:8080/ShopSite/register.jsp">SIGNUP</a>
-					</div>
 				</div>
 				<div class="clearfix"></div>
 			</div>
@@ -145,20 +181,20 @@
 				<div class="grid images_3_of_2">
 					<ul id="etalage">
 						<li><img class="etalage_thumb_image"
-							src="resources/images/s4.jpg" class="img-responsive" /> <img
-							class="etalage_source_image" src="resources/images/si4.jpg"
+							src="http://127.0.0.1:8080/ShopSite/${goods.gurl}" class="img-responsive" /> <img
+							class="etalage_source_image" src="http://127.0.0.1:8080/ShopSite/${goods.gurl}" 
 							class="img-responsive" title="" /></li>
 						<li><img class="etalage_thumb_image"
-							src="resources/images/s2.jpg" class="img-responsive" /> <img
-							class="etalage_source_image" src="resources/images/si2.jpg"
+							src="http://127.0.0.1:8080/ShopSite/${goods.gurl}" class="img-responsive" /> <img
+							class="etalage_source_image" src="http://127.0.0.1:8080/ShopSite/${goods.gurl}" 
 							class="img-responsive" title="" /></li>
 						<li><img class="etalage_thumb_image"
-							src="resources/images/s3.jpg" class="img-responsive" /> <img
-							class="etalage_source_image" src="resources/images/si3.jpg"
+							src="http://127.0.0.1:8080/ShopSite/${goods.gurl}" class="img-responsive" /> <img
+							class="etalage_source_image" src="http://127.0.0.1:8080/ShopSite/${goods.gurl}" 
 							class="img-responsive" /></li>
 						<li><img class="etalage_thumb_image"
-							src="resources/images/s1.jpg" class="img-responsive" /> <img
-							class="etalage_source_image" src="resources/images/si1.jpg"
+							src="http://127.0.0.1:8080/ShopSite/${goods.gurl}" class="img-responsive" /> <img
+							class="etalage_source_image" src="http://127.0.0.1:8080/ShopSite/${goods.gurl}" 
 							class="img-responsive" /></li>
 					</ul>
 					<div class="clearfix"></div>
@@ -171,8 +207,8 @@
 					</ul>
 					<h1>Sofi Blouse</h1>
 					<ul class="price_single">
-						<li class="head"><h2>$98.95</h2></li>
-						<li class="head_desc sky-form"><a href="#">12 reviews</a>
+						<li class="head"><h2>$ ${goods.gprice}</h2></li>
+						<li class="head_desc sky-form"><a href="#"><h4 id="goodsnumber">库存量: ${goods.gnumber}</h4></a>
 							<fieldset>
 								<section>
 
@@ -208,33 +244,33 @@
 						nobis eleifend option congue nihil imperdiet doming id quod mazim
 						placerat facer possim assum</p>
 
-					<a href="#" class="now-get">Add To Cart</a>
+					<a href="#" class="now-get" onclick="addToCart()">Add To Cart</a>
 
 				</div>
 				<div class="clearfix"></div>
 			</div>
 			<ul id="flexiselDemo1">
-				<li><img src="resources/images/pi.jpg" />
+				<li><img src="http://127.0.0.1:8080/ShopSite/resources/images/pi.jpg" />
 					<div class="grid-flex">
 						<a href="#">Bloch</a>
 						<p>Rs 850</p>
 					</div></li>
-				<li><img src="resources/images/pi1.jpg" />
+				<li><img src="http://127.0.0.1:8080/ShopSite/resources/images/pi1.jpg" />
 					<div class="grid-flex">
 						<a href="#">Capzio</a>
 						<p>Rs 850</p>
 					</div></li>
-				<li><img src="resources/images/pi2.jpg" />
+				<li><img src="http://127.0.0.1:8080/ShopSite/resources/images/pi2.jpg" />
 					<div class="grid-flex">
 						<a href="#">Zumba</a>
 						<p>Rs 850</p>
 					</div></li>
-				<li><img src="resources/images/pi3.jpg" />
+				<li><img src="http://127.0.0.1:8080/ShopSite/resources/images/pi3.jpg" />
 					<div class="grid-flex">
 						<a href="#">Bloch</a>
 						<p>Rs 850</p>
 					</div></li>
-				<li><img src="resources/images/pi4.jpg" />
+				<li><img src="http://127.0.0.1:8080/ShopSite/resources/images/pi4.jpg" />
 					<div class="grid-flex">
 						<a href="#">Capzio</a>
 						<p>Rs 850</p>
@@ -267,7 +303,7 @@
 
 				});
 			</script>
-			<script type="text/javascript" src="js/jquery.flexisel.js"></script>
+			<script type="text/javascript" src="http://127.0.0.1:8080/ShopSite/resources/js/jquery.flexisel.js"></script>
 
 			<div class="toogle">
 				<h3 class="m_3">Product Details</h3>

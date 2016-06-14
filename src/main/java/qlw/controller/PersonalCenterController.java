@@ -26,6 +26,12 @@ public class PersonalCenterController {
 	public ModelAndView personalCenterSave(@RequestParam(value = "id") String id,
 			@RequestParam(value = "name", required = false) String name,
 			@RequestParam(value = "photo", required = false) MultipartFile file, HttpServletRequest request) {
+		String cid = (String) request.getSession().getAttribute("customer_id");
+		if (cid == null || cid.equals("")) {
+			ModelAndView modelAndView = new ModelAndView();
+			modelAndView.setViewName("login");
+			return modelAndView;
+		}
 		ModelMap mmap = new ModelMap();
 		System.out.println("Begin PersonalCenterSave " + name);
 		ModelAndView modelAndView = new ModelAndView();
