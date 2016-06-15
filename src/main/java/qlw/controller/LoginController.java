@@ -36,9 +36,9 @@ public class LoginController {
 		} else if (res.equals("1")) {
 			Systemuser currentSu = loginService.getCurrentSu(id);
 			request.getSession().setAttribute("sysuser_id", id);
-			request.getSession().setAttribute("sysuser_pwd", currentSu.getSupwd());
-			request.getSession().setAttribute("sutoheadcheck", currentSu.getSutoheadcheck());
-			request.getSession().setAttribute("sutogoodscheck", currentSu.getSutogoodscheck());
+			request.getSession().setAttribute("sysuser_pwd",String.valueOf(currentSu.getSupwd()) );
+			request.getSession().setAttribute("sutoheadcheck", String.valueOf(currentSu.getSutoheadcheck()));
+			request.getSession().setAttribute("sutogoodscheck",String.valueOf( currentSu.getSutogoodscheck()));
 			modelAndView = new ModelAndView("syshome", mmap);
 		} else {
 			modelAndView.setViewName("sysloginError");
@@ -77,7 +77,7 @@ public class LoginController {
 			if (customer.getCurl() != null) {
 				request.getSession().setAttribute("photoURL", "http://127.0.0.1:8080/ShopSite/" + customer.getCurl());
 			}
-			request.getSession().setAttribute("ctoread", customer.getCtoread());
+			request.getSession().setAttribute("ctoread", String.valueOf( customer.getCtoread()));
 			request.getSession().setAttribute("customer_id", id);
 			request.getSession().setAttribute("customer_pwd", pwd);
 			// mmap.addAttribute("customer_id", id);

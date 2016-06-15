@@ -2,6 +2,7 @@ package qlw.controller;
 
 import java.util.List;
 
+import javax.persistence.criteria.CriteriaBuilder.In;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -46,6 +47,9 @@ public class ListController {
 	// 审核头像通过
 	@RequestMapping(value = "/HeadPass", method = RequestMethod.GET)
 	public String headPass(HttpServletRequest request, HttpServletResponse response) {
+		String sutoheadcheck=(String)request.getSession().getAttribute("sutoheadcheck");
+		int sutoheadcheckToint=Integer.parseInt(sutoheadcheck)-1;
+		request.getSession().setAttribute("sutoheadcheck", String.valueOf(sutoheadcheckToint));
 		String hcid = request.getParameter("hcid");
 		String cid = request.getParameter("cid");
 		listService.headCheckPass(hcid, cid);
@@ -67,6 +71,9 @@ public class ListController {
 	// 审核头像不通过
 	@RequestMapping(value = "/HeadNotPass", method = RequestMethod.GET)
 	public String headNotPass(HttpServletRequest request, HttpServletResponse response) {
+		String sutoheadcheck=(String)request.getSession().getAttribute("sutoheadcheck");
+		int sutoheadcheckToint=Integer.parseInt(sutoheadcheck)-1;
+		request.getSession().setAttribute("sutoheadcheck", String.valueOf(sutoheadcheckToint));
 		String hcid = request.getParameter("hcid");
 		String cid = request.getParameter("cid");
 		String path = request.getSession().getServletContext().getRealPath("/").replace("\\List\\", "\\");

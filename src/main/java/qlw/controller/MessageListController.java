@@ -25,6 +25,7 @@ public class MessageListController {
 	public String messageDelete(HttpServletRequest request, HttpServletResponse response){
 		String mto = (String) request.getSession().getAttribute("customer_id");
 		String mid=request.getParameter("mid");
+
 		messageListService.messageDelete(mid);
 		try {
 			String pageNo = request.getParameter("pageNo");
@@ -38,8 +39,8 @@ public class MessageListController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-		return "messageIsRead";
+		
+		return "messageListIsRead";
 	}
 	@RequestMapping("/MessageIsRead")
 	public String messageIsRead(HttpServletRequest request, HttpServletResponse response){
@@ -62,6 +63,7 @@ public class MessageListController {
 	}
 	@RequestMapping()
 	public String messageList(HttpServletRequest request, HttpServletResponse response) {
+		request.getSession().setAttribute("ctoread","0");
 		String mto = (String) request.getSession().getAttribute("customer_id");
 		if (mto == null || mto.equals("")) {
 			return "login";
