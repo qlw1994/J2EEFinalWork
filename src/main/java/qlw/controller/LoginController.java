@@ -36,6 +36,7 @@ public class LoginController {
 		} else if (res.equals("1")) {
 			Systemuser currentSu = loginService.getCurrentSu(id);
 			request.getSession().setAttribute("sysuser_id", id);
+			request.getSession().setAttribute("sysuser_pwd", currentSu.getSupwd());
 			request.getSession().setAttribute("sutoheadcheck", currentSu.getSutoheadcheck());
 			request.getSession().setAttribute("sutogoodscheck", currentSu.getSutogoodscheck());
 			modelAndView = new ModelAndView("syshome", mmap);

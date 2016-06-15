@@ -4,14 +4,14 @@
 <html>
 <head>
 <title>PersonalCenter</title>
-<link href="resources/css/bootstrap.css" rel="stylesheet"
+<link href="http://127.0.0.1:8080/ShopSite/resources/css/bootstrap.css" rel="stylesheet"
 	type="text/css" media="all" />
 <!--theme-style-->
-<link href="resources/css/mainstyle.css" rel="stylesheet"
+<link href="http://127.0.0.1:8080/ShopSite/resources/css/mainstyle.css" rel="stylesheet"
 	type="text/css" media="all" />
 	<script src="resources/js/jquery.min.js"></script>
 
-<script src="resources/js/jquery.easydropdown.js"></script>
+<script src="http://127.0.0.1:8080/ShopSite/resources/js/jquery.easydropdown.js"></script>
 <!--script-->
 <!--//theme-style-->
 <meta name="viewport"

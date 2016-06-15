@@ -13,7 +13,6 @@ import org.hibernate.annotations.GenericGenerator;
 @Table(name = "orders")
 public class Orders {
 	private int oid;
-	private int gid;
 	private String cid;
 	private Double omoney;
 	private Date orefunddate;
@@ -22,6 +21,7 @@ public class Orders {
 	private String ophone;
 	private Date ocreate;
 	private Date oremove;
+	private String ostate;
 
 	@Id
 	@GeneratedValue(generator = "identity")
@@ -34,12 +34,14 @@ public class Orders {
 		this.oid = oid;
 	}
 
-	public int getGid() {
-		return gid;
+
+
+	public String getOstate() {
+		return ostate;
 	}
 
-	public void setGid(int gid) {
-		this.gid = gid;
+	public void setOstate(String ostate) {
+		this.ostate = ostate;
 	}
 
 	public String getCid() {

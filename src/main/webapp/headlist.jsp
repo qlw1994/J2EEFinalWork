@@ -120,7 +120,7 @@ table.altrowstable td {
 					href="http://127.0.0.1:8080/ShopSite/HeadCheck?pageNo=${page.bottomPageNo }"><input
 						type="button" name="lastPage" value="尾页" /></a>
 				</td>
-				<td><a href="http://127.0.0.1:8080/ShopSite/syshome.jsp">返回</a></td>
+				<td><a href="http://127.0.0.1:8080/ShopSite/Login/SystemUser?id=${sysuser_id}&pwd=${sysuser_pwd}">返回</a></td>
 			</tr>
 		</table>
 	</center>

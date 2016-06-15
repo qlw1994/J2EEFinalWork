@@ -33,7 +33,10 @@
 
 	function add(obj) {
 		var tb_number = $(obj).parent().prev().prev();
+		var tb_totalmoney = $(obj).parent().prev();
+		var totalmoney = tb_totalmoney.text();
 		var number = tb_number.text();
+		var money = totalmoney/number;
 		$.ajax({
 			type : "GET",
 			url : "http://127.0.0.1:8080/ShopSite/Single/AddToCart?gid=${shopcartinfos[0].gid}",
@@ -43,7 +46,8 @@
 				if (res != "0") {
 					number++;
 					$(tb_number).html(number);
-					alert("添加成功 ");
+					$(tb_totalmoney).html((totalmoney*1+money*1).toFixed(1));
+				//	alert("添加成功 ");
 				} else {
 					alert("库存不足！");
 				}
@@ -57,10 +61,12 @@
 
 	function sub(obj) {
 		var tb_number = $(obj).parent().prev().prev();
+		var tb_totalmoney = $(obj).parent().prev();
+		var totalmoney = tb_totalmoney.text();
 		var number = tb_number.text();
-		if (number == 0) {
-			$(this).parent().parent().parent().hide(1000);
-		} else {
+		var money = totalmoney/number;
+	
+	
 			
 			$.ajax({
 						type : "GET",
@@ -71,7 +77,11 @@
 							if (res != "0") {
 								number = number - 1;
 								$(tb_number).html(number);
-								alert("添加成功 ,库存剩余" + number);
+								$(tb_totalmoney).text((totalmoney-money).toFixed(1));
+								//alert("成功 ,库存剩余" + number);
+								if(number==0){
+									$(obj).parent().parent().hide(1000);
+									}
 							} else {
 								alert("库存不足！");
 							}
@@ -80,7 +90,7 @@
 							alert("请求失败");
 						}
 					});
-		}
+		
 	}
 </script>
 </head>
@@ -105,7 +115,7 @@
 					<td><c:out value="${shopcartinfo.gid}" /></td>
 					<td><c:out value="${shopcartinfo.cid}" /></td>
 					<td>${shopcartinfo.scinumber}</td>
-					<td><c:out value="${shopcartinfo.scimoney}" /></td>
+					<td>${shopcartinfo.scimoney}</td>
 					<td><h5 onclick="add(this)">+</h5>
 						<h5 onclick="sub(this)">-</h5></td>
 
@@ -144,7 +154,7 @@
 
 						</c:otherwise>
 					</c:choose> <a
-					href="http://127.0.0.1:8080/ShopSite/ShopcartList?pageNo=${page.bottomPageNo}&cid=${customer_id}"><input
+					href="http://127.0.0.1:8080/ShopSite/ShopcartList/?pageNo=${page.bottomPageNo}&cid=${customer_id}"><input
 						type="button" name="lastPage" value="尾页" /></a>
 				</td>
 				<td><a href="#">结账</a></td>

@@ -145,7 +145,7 @@
 				</div>
 				<div class="header-bottom-right">
 					<ul class="men-grid">
-						<li><a href="#"><span> </span>New Messages【${ctoread}】</a></li>
+						<li><a href="http://127.0.0.1:8080/ShopSite/MessageList"><span> </span>New Messages【${ctoread}】</a></li>
 						<li>
 						<li><a href="http://127.0.0.1:8080/ShopSite/GoodsList"><span>
 							</span>Upload Goods</a></li>
@@ -244,7 +244,7 @@
 						nobis eleifend option congue nihil imperdiet doming id quod mazim
 						placerat facer possim assum</p>
 
-					<a href="#" class="now-get" onclick="addToCart()">Add To Cart</a>
+					<a  class="now-get" onclick="addToCart()">Add To Cart</a>
 
 				</div>
 				<div class="clearfix"></div>

@@ -5,11 +5,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script src="resources/js/jquery-1.11.3.min.js" type="text/javascript"></script>
-<script src="resources/js/jquery.min.js"></script>
-<script src="resources/js/jquery.easydropdown.js"></script>
-<script src="resources/js/table.js" type="text/javascript"></script>
-<link href="resources/css/table.css" rel="stylesheet" type="text/css"
+<script src="http://127.0.0.1:8080/ShopSite/resources/js/jquery-1.11.3.min.js" type="text/javascript"></script>
+<script src="http://127.0.0.1:8080/ShopSite/resources/js/jquery.min.js"></script>
+<script src="http://127.0.0.1:8080/ShopSite/resources/js/jquery.easydropdown.js"></script>
+<script src="http://127.0.0.1:8080/ShopSite/resources/js/table.js" type="text/javascript"></script>
+<link href="http://127.0.0.1:8080/ShopSite/resources/css/table.css" rel="stylesheet" type="text/css"
 	media="all" />
 <title>AddressList</title>
 <script type="text/javascript">

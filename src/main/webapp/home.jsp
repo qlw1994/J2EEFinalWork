@@ -4,10 +4,10 @@
 <html>
 <head>
 <title>Home</title>
-<link href="resources/css/bootstrap.css" rel="stylesheet"
+<link href="http://127.0.0.1:8080/ShopSite/resources/css/bootstrap.css" rel="stylesheet"
 	type="text/css" media="all" />
 <!--theme-style-->
-<link href="resources/css/mainstyle.css" rel="stylesheet"
+<link href="http://127.0.0.1:8080/ShopSite/resources/css/mainstyle.css" rel="stylesheet"
 	type="text/css" media="all" />
 <!--//theme-style-->
 <meta name="viewport"
@@ -20,8 +20,8 @@
 	href='http://fonts.useso.com/resources/css?family=Open+Sans:400,300,600,700,800'
 	rel='stylesheet' type='text/css'>
 <!--//fonts-->
-<script src="resources/js/jquery.min.js"></script>
-<script src="resources/js/jquery.easydropdown.js"></script>
+<script src="http://127.0.0.1:8080/ShopSite/resources/js/jquery.min.js"></script>
+<script src="http://127.0.0.1:8080/ShopSite/resources/js/jquery.easydropdown.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 		var id = "${customer_id}";
@@ -30,7 +30,7 @@
 			if (photo != null && photo != "") {
 				$("#headPhoto").attr('src', photo);
 			} else {
-				$("#headPhoto").attr('src', "resources/images/avatar.png");
+				$("#headPhoto").attr('src', "http://127.0.0.1:8080/ShopSite/resources/images/avatar.png");
 			}
 			$("#islogin").hide();
 		} else {
@@ -89,7 +89,7 @@
 				<div class="header-bottom-left">
 					<div class="logo">
 						<a href="http://127.0.0.1:8080/ShopSite/home.jsp"><img
-							src="resources/images/logo.png" alt=" " /></a>
+							src="http://127.0.0.1:8080/ShopSite/resources/images/logo.png" alt=" " /></a>
 					</div>
 					<div class="search">
 						<input type="text" value="" onfocus="this.value = '';"
@@ -101,7 +101,7 @@
 				</div>
 				<div class="header-bottom-right">
 					<ul class="men-grid">
-						<li><a href="http://127.0.0.1:8080/ShopSite/MessageList"><span> </span>New Messages${ctoread}</a></li>
+						<li><a href="http://127.0.0.1:8080/ShopSite/MessageList"><span> </span>New Messages ${ctoread}</a></li>
 						<li>
 						<li><a href="http://127.0.0.1:8080/ShopSite/GoodsList"><span>
 							</span>Upload Goods</a></li>
@@ -138,7 +138,7 @@
 						<article style="position: absolute; width: 100%; opacity: 0;">
 						<div class="banner-matter">
 							<img class="img-responsive banner-bag"
-								src="resources/images/bag.jpg" alt=" " />
+								src="http://127.0.0.1:8080/ShopSite/resources/images/bag.jpg" alt=" " />
 							<div class="banner-off">
 								<h2>FLAT 50% 0FF</h2>
 								<span>FOR ALL PURCHASE <b>VALUE</b></span>
@@ -152,7 +152,7 @@
 						<article style="position: absolute; width: 100%; opacity: 0;">
 						<div class="banner-matter">
 							<img class="img-responsive banner-bag"
-								src="resources/images/bag1.jpg" alt=" " />
+								src="http://127.0.0.1:8080/ShopSite/resources/images/bag1.jpg" alt=" " />
 							<div class="banner-off">
 								<h2>FLAT 50% 0FF</h2>
 								<span>FOR ALL PURCHASE <b>VALUE</b></span>
@@ -166,7 +166,7 @@
 						<article style="position: absolute; width: 100%; opacity: 0;">
 						<div class="banner-matter">
 							<img class="img-responsive banner-bag"
-								src="resources/images/bag.jpg" alt=" " />
+								src="http://127.0.0.1:8080/ShopSite/resources/images/bag.jpg" alt=" " />
 							<div class="banner-off">
 								<h2>FLAT 50% 0FF</h2>
 								<span>FOR ALL PURCHASE <b>VALUE</b></span>
@@ -185,7 +185,7 @@
 					</ul>
 				</div>
 
-				<script src="resources/js/jquery.wmuSlider.js"></script>
+				<script src="http://127.0.0.1:8080/ShopSite/resources/js/jquery.wmuSlider.js"></script>
 				<script>
 					$('.example1').wmuSlider();
 				</script>
@@ -200,7 +200,7 @@
 							<a class="now-get" href="#">GET NOW</a>
 						</div>
 						<a href="http://127.0.0.1:8080/ShopSite/single.jsp"><img
-							class="img-responsive shoe-left" src="resources/images/sh.jpg"
+							class="img-responsive shoe-left" src="http://127.0.0.1:8080/ShopSite/resources/images/sh.jpg"
 							alt=" " /></a>
 						<div class="clearfix"></div>
 					</div>
@@ -213,7 +213,7 @@
 							<a class="now-get" href="#">GET NOW</a>
 						</div>
 						<a href="http://127.0.0.1:8080/ShopSite/single.jsp"><img
-							class="img-responsive shoe-left" src="resources/images/wa.jpg"
+							class="img-responsive shoe-left" src="http://127.0.0.1:8080/ShopSite/resources/images/wa.jpg"
 							alt=" " /></a>
 						<div class="clearfix"></div>
 					</div>
@@ -227,7 +227,7 @@
 				<div class="product-left">
 					<div class=" chain-grid">
 						<a href="http://127.0.0.1:8080/ShopSite/single.jsp"><img
-							class="img-responsive chain" src="resources/images/ch.jpg"
+							class="img-responsive chain" src="http://127.0.0.1:8080/ShopSite/resources/images/ch.jpg"
 							alt=" " /></a> <span class="star"> </span>
 						<div class="grid-chain-bottom">
 							<h6>Lorem ipsum dolor</h6>
@@ -259,7 +259,7 @@
 					</div>
 					<div class=" chain-grid">
 						<a href="http://127.0.0.1:8080/ShopSite/single.jsp"><img
-							class="img-responsive chain" src="resources/images/ba.jpg"
+							class="img-responsive chain" src="http://127.0.0.1:8080/ShopSite/resources/images/ba.jpg"
 							alt=" " /></a> <span class="star"> </span>
 						<div class="grid-chain-bottom">
 							<h6>Lorem ipsum dolor</h6>
@@ -291,7 +291,7 @@
 					</div>
 					<div class=" chain-grid grid-top-chain">
 						<a href="http://127.0.0.1:8080/ShopSite/single.jsp"><img
-							class="img-responsive chain" src="resources/images/bo.jpg"
+							class="img-responsive chain" src="http://127.0.0.1:8080/ShopSite/resources/images/bo.jpg"
 							alt=" " /></a> <span class="star"> </span>
 						<div class="grid-chain-bottom">
 							<h6>Lorem ipsum dolor</h6>
@@ -330,7 +330,7 @@
 				<div class="product-left">
 					<div class=" chain-grid">
 						<a href="http://127.0.0.1:8080/ShopSite/single.jsp"><img
-							class="img-responsive chain" src="resources/images/bott.jpg"
+							class="img-responsive chain" src="http://127.0.0.1:8080/ShopSite/resources/images/bott.jpg"
 							alt=" " /></a> <span class="star"> </span>
 						<div class="grid-chain-bottom">
 							<h6>Lorem ipsum dolor</h6>
@@ -362,7 +362,7 @@
 					</div>
 					<div class=" chain-grid">
 						<a href="http://127.0.0.1:8080/ShopSite/single.jsp"><img
-							class="img-responsive chain" src="resources/images/bottle.jpg"
+							class="img-responsive chain" src="http://127.0.0.1:8080/ShopSite/resources/images/bottle.jpg"
 							alt=" " /></a> <span class="star"> </span>
 						<div class="grid-chain-bottom">
 							<h6>Lorem ipsum dolor</h6>
@@ -394,7 +394,7 @@
 					</div>
 					<div class=" chain-grid grid-top-chain">
 						<a href="http://127.0.0.1:8080/ShopSite/single.jsp"><img
-							class="img-responsive chain" src="resources/images/baa.jpg"
+							class="img-responsive chain" src="http://127.0.0.1:8080/ShopSite/resources/images/baa.jpg"
 							alt=" " /></a> <span class="star"> </span>
 						<div class="grid-chain-bottom">
 							<h6>Lorem ipsum dolor</h6>
@@ -433,7 +433,7 @@
 					<h3 class="cate">CATEGORIES</h3>
 					<ul class="menu">
 						<li class="item1"><a href="#">Curabitur sapien<img
-								class="arrow-img" src="resources/images/arrow1.png" alt="" />
+								class="arrow-img" src="http://127.0.0.1:8080/ShopSite/resources/images/arrow1.png" alt="" />
 						</a>
 							<ul class="cute">
 								<li class="subitem1"><a
@@ -447,7 +447,7 @@
 										Fails </a></li>
 							</ul></li>
 						<li class="item2"><a href="#">Dignissim purus <img
-								class="arrow-img " src="resources/images/arrow1.png" alt="" /></a>
+								class="arrow-img " src="http://127.0.0.1:8080/ShopSite/resources/images/arrow1.png" alt="" /></a>
 							<ul class="cute">
 								<li class="subitem1"><a
 									href="http://127.0.0.1:8080/ShopSite/product.jsp">Cute
@@ -460,7 +460,7 @@
 										Fails </a></li>
 							</ul></li>
 						<li class="item3"><a href="#">Ultrices id du<img
-								class="arrow-img img-arrow" src="resources/images/arrow1.png"
+								class="arrow-img img-arrow" src="http://127.0.0.1:8080/ShopSite/resources/images/arrow1.png"
 								alt="" />
 						</a>
 							<ul class="cute">
@@ -476,7 +476,7 @@
 							</ul></li>
 						<li class="item4"><a href="#">Cras iacaus rhone <img
 								class="arrow-img img-left-arrow"
-								src="resources/images/arrow1.png" alt="" /></a>
+								src="http://127.0.0.1:8080/ShopSite/resources/images/arrow1.png" alt="" /></a>
 							<ul class="cute">
 								<li class="subitem1"><a
 									href="http://127.0.0.1:8080/ShopSite/product.jsp">Cute
@@ -539,7 +539,7 @@
 				</script>
 				<div class=" chain-grid menu-chain">
 					<a href="http://127.0.0.1:8080/ShopSite/single.jsp"><img
-						class="img-responsive chain" src="resources/images/wat.jpg"
+						class="img-responsive chain" src="http://127.0.0.1:8080/ShopSite/resources/images/wat.jpg"
 						alt=" " /></a>
 					<div class="grid-chain-bottom chain-watch">
 						<span class="actual dolor-left-grid">300$</span> <span

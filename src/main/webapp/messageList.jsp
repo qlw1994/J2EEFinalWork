@@ -52,8 +52,6 @@
 					<td><c:out value="${messages.mfrom}" /></td>
 					<td><c:out value="${messages.mto}" /></td>
 					<td><c:out value="${messages.mcreate}" /></td>
-					<td><a
-						href="http://127.0.0.1:8080/ShopSite/MessageList/MessageDelete?alid=${messages.mid}&cid=${customer_id}&pageNo=${page.topPageNo}">删除</a></td>
 				</tr>
 			</c:forEach>
 			<tr>
@@ -91,7 +89,7 @@
 						type="button" name="lastPage" value="尾页" /></a>
 				</td>
 				<td><a
-					href="http://127.0.0.1:8080/ShopSite/MessageList/MessageAdd?cid=${customer_id}&pageNo=${page.topPageNo}"">显示已读</a></td>
+					href="http://127.0.0.1:8080/ShopSite/MessageList/MessageIsRead?cid=${customer_id}&pageNo=1">显示已读</a></td>
 				<td><a href="http://127.0.0.1:8080/ShopSite/home.jsp">返回</a></td>
 			</tr>
 		</table>

@@ -56,7 +56,7 @@
 						             $.each(jsonStr, function (n, value) {  
 						            	 var ruleListTemp = "<div class=\"product-grid\"><div class=\"content_box\"><a href=\"http://127.0.0.1:8080/ShopSite/Single?gid=";  
 						                ruleListTemp += (value.gid+"\"><div class=\"left-grid-view grid-view-left\"><img src=\"http://127.0.0.1:8080/ShopSite/");  
-						              	ruleListTemp += (value.gurl+"\" class=\"img-responsive watch-right\" alt=\"\" /><div class=\"mask\"><div class=\"info\">Quick View</div></div>");
+						              	ruleListTemp += (value.gurl+"\" class=\"img-responsive watch-right\" alt=\"\" width=210px height=250px/><div class=\"mask\"><div class=\"info\">Quick View</div></div>");
 						                ruleListTemp += ("</a></div><h4>"+value.gname+"</h4></div></div>");   
 						                $("#productList").append(ruleListTemp);  
 						            });  
@@ -134,7 +134,7 @@
 				</div>
 				<div class="header-bottom-right">
 					<ul class="men-grid">
-						<li><a href="#"><span> </span>New Messages【${ctoread}】</a></li>
+						<li><a href="http://127.0.0.1:8080/ShopSite/MessageList"><span> </span>New Messages【${ctoread}】</a></li>
 						<li>
 						<li><a href="http://127.0.0.1:8080/ShopSite/GoodsList"><span>
 							</span>Upload Goods</a></li>

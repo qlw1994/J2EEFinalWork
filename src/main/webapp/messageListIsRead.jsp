@@ -53,7 +53,7 @@
 					<td><c:out value="${messages.mto}" /></td>
 					<td><c:out value="${messages.mcreate}" /></td>
 					<td><a
-						href="http://127.0.0.1:8080/ShopSite/MessageList/MessageDelete?alid=${messages.mid}&cid=${customer_id}&pageNo=${page.topPageNo}">删除</a></td>
+						href="http://127.0.0.1:8080/ShopSite/MessageList/MessageDelete?mid=${messages.mid}&cid=${customer_id}&pageNo=${page.topPageNo}">删除</a></td>
 				</tr>
 			</c:forEach>
 			<tr>

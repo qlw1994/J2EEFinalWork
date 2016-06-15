@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="keywords"
 	content="Flat Dark Web Login Form Responsive Templates, Iphone Widget Template, Smartphone login forms,Login form, Widget Template, Responsive Templates, a Ipad 404 Templates, Flat Responsive Templates" />
-<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href="http://127.0.0.1:8080/ShopSite/resources/css/style.css" rel='stylesheet' type='text/css' />
 <!--webfonts-->
 <link
 	href='http://fonts.useso.com/css?family=PT+Sans:400,700,400italic,700italic|Oswald:400,300,700'
@@ -18,7 +18,7 @@
 <!--//webfonts-->
 <script
 	src="http://ajax.useso.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="resources/js/login.js" type="text/javascript"></script>
+<script src="http://127.0.0.1:8080/ShopSite/resources/js/login.js" type="text/javascript"></script>
 <script type="text/javascript">
 	function idAjaxCheck() {
 		var cid = $("#id").val();
@@ -62,7 +62,7 @@
 		<form action="Register" onsubmit="return validate_form(this)"
 			method="post">
 			<input id="id" name="id" type="text" class="text"
-				onfocus="this.value = '';">
+				onfocus="this.value = '';" onblur="idAjaxCheck()">
 			<div class="key">
 				<input name="pwd" type="password" onfocus="this.value = '';">
 			</div>

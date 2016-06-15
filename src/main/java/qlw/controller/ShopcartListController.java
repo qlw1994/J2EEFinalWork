@@ -25,9 +25,28 @@ public class ShopcartListController {
 	@Autowired
 	GoodsListForUserService goodsListForUserService;
 
+	@RequestMapping("/ShopcartToOrders")
+	public String shopcartToOrders(HttpServletRequest request, HttpServletResponse response){
+		
+		return "singleOrder";
+	}
+	
+	@RequestMapping("/OrdersList")
+	public String ordersList(HttpServletRequest request, HttpServletResponse response){
+		
+		return "ordersList";
+	}
+	
+	//ajaxÉ¾³ý
+	@RequestMapping("/OrderRefund")
+	@ResponseBody
+	public String orderRefund(HttpServletRequest request, HttpServletResponse response){
+		
+		return "Y";
+	}
 	@RequestMapping("/ShopcartDelete")
 	public String shopcartDelete(HttpServletRequest request, HttpServletResponse response) {
-
+		String cid =(String) request.getSession().getAttribute("customer_id");
 		String sciid = request.getParameter("sciid");
 		shopCartService.shopcartinfoDelete(sciid);
 		try {

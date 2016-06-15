@@ -48,7 +48,10 @@ public class MessageListService implements ServiceInterface {
 			messagesDao.update(messages);
 		}
 		Customer customer=customerDao.findById(mto);
-		customer.setCtoread(customer.getCtoread()-list.size());
+		int toread=customer.getCtoread()-list.size();
+		if(toread<0)
+			toread=0;
+		customer.setCtoread(toread);
 		customerDao.update(customer);
 		
 		page.setPageNo(currentPage);

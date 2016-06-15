@@ -4,10 +4,10 @@
 <html>
 <head>
 <title>Contact</title>
-<link href="resources/css/bootstrap.css" rel="stylesheet"
+<link href="http://127.0.0.1:8080/ShopSite/resources/css/bootstrap.css" rel="stylesheet"
 	type="text/css" media="all" />
 <!--theme-style-->
-<link href="resources/css/mainstyle.css" rel="stylesheet"
+<link href="http://127.0.0.1:8080/ShopSite/resources/css/mainstyle.css" rel="stylesheet"
 	type="text/css" media="all" />
 <!--//theme-style-->
 <meta name="viewport"
@@ -20,8 +20,8 @@
 	href='http://fonts.useso.com/css?family=Open+Sans:400,300,600,700,800'
 	rel='stylesheet' type='text/css'>
 <!--//fonts-->
-<script src="resources/js/jquery.min.js"></script>
-<script src="resources/js/jquery.easydropdown.js"></script>
+<script src="http://127.0.0.1:8080/ShopSite/resources/js/jquery.min.js"></script>
+<script src="http://127.0.0.1:8080/ShopSite/resources/js/jquery.easydropdown.js"></script>
 
 <!--script-->
 </head>

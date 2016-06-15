@@ -25,9 +25,16 @@ public class ShopCartService implements ServiceInterface {
 		Goods goods = goodsListForUserService.getCurrentGoods(gid);
 		List<Shopcartinfo> shopcartinfolist = shopcartinfoDao.findByHQL("from Shopcartinfo where gid = " + gid, null);
 		Shopcartinfo shopcartinfo = shopcartinfolist.get(0);
-		shopcartinfo.setScimoney(shopcartinfo.getScimoney() - goods.getGprice());
-		shopcartinfo.setScinumber(shopcartinfo.getScinumber() - 1);
-		shopcartinfoDao.update(shopcartinfo);
+		int currentNumber = shopcartinfo.getScinumber();
+		int nextNumber = currentNumber - 1;
+		if (nextNumber == 0) {
+			this.shopcartinfoDelete(String.valueOf(shopcartinfo.getSciid()));
+		} else {
+			shopcartinfo.setScimoney(shopcartinfo.getScimoney() - goods.getGprice());
+			shopcartinfo.setScinumber(nextNumber);
+			shopcartinfoDao.update(shopcartinfo);
+		}
+
 	}
 
 	// µ¥¸öÌí¼Ó
@@ -86,7 +93,11 @@ public class ShopCartService implements ServiceInterface {
 	}
 
 	public void shopcartinfoDelete(String sciid) {
-
+		Shopcartinfo Shopcartinfo = shopcartinfoDao.findById(Integer.parseInt(sciid));
+		Goods goods = goodsListForUserService.getCurrentGoods(String.valueOf(Shopcartinfo.getGid()));
+		goods.setGnumber(goods.getGnumber() + Shopcartinfo.getScinumber());
+		goodsListForUserService.goodsModifySave(goods);
 		shopcartinfoDao.delete(Integer.parseInt(sciid));
+
 	}
 }

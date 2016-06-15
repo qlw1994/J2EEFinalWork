@@ -24,13 +24,14 @@ public class MessageListController {
 	@RequestMapping("/MessageDelete")
 	public String messageDelete(HttpServletRequest request, HttpServletResponse response){
 		String mto = (String) request.getSession().getAttribute("customer_id");
-		
+		String mid=request.getParameter("mid");
+		messageListService.messageDelete(mid);
 		try {
 			String pageNo = request.getParameter("pageNo");
 			if (pageNo == null) {
 				pageNo = "1";
 			}
-			Page page = messageListService.queryForPage_MessagesNotRead(Integer.valueOf(pageNo), 10, mto);
+			Page page = messageListService.queryForPage_MessagesIsRead(Integer.valueOf(pageNo), 10, mto);
 			request.setAttribute("page", page);
 			List<Messages> messagesList = page.getList();
 			request.setAttribute("messagesList", messagesList);
@@ -38,9 +39,27 @@ public class MessageListController {
 			e.printStackTrace();
 		}
 
-		return "messageList";
+		return "messageIsRead";
 	}
-	
+	@RequestMapping("/MessageIsRead")
+	public String messageIsRead(HttpServletRequest request, HttpServletResponse response){
+		String mto = (String) request.getSession().getAttribute("customer_id");
+		
+		try {
+			String pageNo = request.getParameter("pageNo");
+			if (pageNo == null) {
+				pageNo = "1";
+			}
+			Page page = messageListService.queryForPage_MessagesIsRead(Integer.valueOf(pageNo), 10, mto);
+			request.setAttribute("page", page);
+			List<Messages> messagesList = page.getList();
+			request.setAttribute("messagesList", messagesList);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return "messageListIsRead";
+	}
 	@RequestMapping()
 	public String messageList(HttpServletRequest request, HttpServletResponse response) {
 		String mto = (String) request.getSession().getAttribute("customer_id");
@@ -52,7 +71,7 @@ public class MessageListController {
 			if (pageNo == null) {
 				pageNo = "1";
 			}
-			Page page = messageListService.queryForPage_Messages(Integer.valueOf(pageNo), 10, mto);
+			Page page = messageListService.queryForPage_MessagesNotRead(Integer.valueOf(pageNo), 10, mto);
 			request.setAttribute("page", page);
 			List<Messages> messagesList = page.getList();
 			request.setAttribute("messagesList", messagesList);

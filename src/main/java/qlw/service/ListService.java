@@ -130,6 +130,8 @@ public class ListService implements ServiceInterface {
 		// 管理员需审核的头像减一
 		Systemuser systemuser = systemuserDao.findById("su");
 		int sutoheadcheck = systemuser.getSutoheadcheck() - 1;
+		if (sutoheadcheck < 0)
+			sutoheadcheck = 0;
 		systemuser.setSutoheadcheck(sutoheadcheck);
 		// 图片状态改变——已审核通过
 		headcheck.setHcstate("1");
@@ -157,6 +159,8 @@ public class ListService implements ServiceInterface {
 		// 管理员需审核的头像减一
 		Systemuser systemuser = systemuserDao.findById("su");
 		int sutoheadcheck = systemuser.getSutoheadcheck() - 1;
+		if (sutoheadcheck < 0)
+			sutoheadcheck = 0;
 		systemuser.setSutoheadcheck(sutoheadcheck);
 		// 文件删除
 		String fileName = headcheck.getHcurl().replace("/", "\\");

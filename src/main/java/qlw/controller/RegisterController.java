@@ -43,7 +43,7 @@ public class RegisterController {
 			mmap.addAttribute("register_id", id);
 			mmap.addAttribute("register_pwd", pwd);
 			registerService.registerSave(id, pwd);
-			modelAndView = new ModelAndView(new RedirectView("Login"), mmap);
+			modelAndView = new ModelAndView(new RedirectView("Login/RegisterLogin"), mmap);
 		}
 		// FAIL
 		else {
